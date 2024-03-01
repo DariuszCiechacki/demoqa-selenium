@@ -1,6 +1,7 @@
 package library.pages.elements;
 
 import library.modules.forms.FormsDto;
+import library.modules.textbox.FormFillingStrategy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
@@ -25,16 +26,16 @@ public class TextBoxPage {
     WebElement textBoxPageTitle;
 
     @FindBy(xpath = "//input[@id='userName']")
-    WebElement userName;
+    public WebElement userName;
 
     @FindBy(xpath = "//input[@id='userEmail']")
-    WebElement userEmail;
+    public WebElement userEmail;
 
     @FindBy(xpath = "//textarea[@id='currentAddress']")
-    WebElement currentAddress;
+    public WebElement currentAddress;
 
     @FindBy(xpath = "//textarea[@id='permanentAddress']")
-    WebElement permanentAddress;
+    public WebElement permanentAddress;
 
     @FindBy(id = "submit")
     WebElement submitButton;
@@ -54,11 +55,8 @@ public class TextBoxPage {
         return true;
     }
 
-    public TextBoxPage fillTextBoxForm(FormsDto formsDto) {
-        userName.sendKeys(formsDto.getFullName());
-        userEmail.sendKeys(formsDto.getEmail());
-        currentAddress.sendKeys(formsDto.getCurrentAddress());
-        permanentAddress.sendKeys(formsDto.getPermanentAddress());
+    public TextBoxPage fillFormWithStrategy(FormFillingStrategy strategy, FormsDto formData) {
+        strategy.fillForm(formData);
 
         return this;
     }
