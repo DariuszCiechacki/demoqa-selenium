@@ -54,11 +54,13 @@ public class TextBoxPage {
         return true;
     }
 
-    public void fillTextBoxForm(FormsDto formsDto){
+    public TextBoxPage fillTextBoxForm(FormsDto formsDto) {
         userName.sendKeys(formsDto.getFullName());
         userEmail.sendKeys(formsDto.getEmail());
         currentAddress.sendKeys(formsDto.getCurrentAddress());
         permanentAddress.sendKeys(formsDto.getPermanentAddress());
+
+        return this;
     }
 
     public Map<String, String> getFilledFormData(){
@@ -72,9 +74,11 @@ public class TextBoxPage {
         return formData;
     }
 
-    public void submitForm(){
+    public TextBoxPage submitForm(){
         submitButton.click();
         waitForFormOutput();
+
+        return this;
     }
 
     public Map<String, String> getOutputFormData(){

@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class FillTextBoxFormTest extends TestCase {
 
-    @Test
+    @Test(description = "fill all visible fields, get data and compare with output")
     public void fillTextBoxFormTest(){
         boolean homePageVisible = new HomePage().waitForHomePageContent();
         Assert.assertTrue(homePageVisible,"Home page is not visible");
