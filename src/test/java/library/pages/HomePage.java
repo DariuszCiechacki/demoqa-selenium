@@ -1,5 +1,6 @@
 package library.pages;
 
+import library.modules.SidebarMenu;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
@@ -47,5 +48,11 @@ public class HomePage {
         }
 
         return true;
+    }
+
+    public SidebarMenu navigateToElementsCategory(){
+        elementsCategory.click();
+
+        return new SidebarMenu();
     }
 }
