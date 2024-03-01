@@ -9,7 +9,8 @@ public class OpenHomePageTest extends TestCase {
 
     @Test
     public void openHomePageTest(){
-        Assert.assertTrue(new HomePage().waitForHomePageContent(),
-                "Home page is not visible");
+        boolean homePageVisible = new HomePage().waitForHomePageContent();
+
+        Assert.assertTrue(homePageVisible,"Home page is not visible");
     }
 }

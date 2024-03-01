@@ -37,7 +37,6 @@ public class HomePage {
     @FindBy(xpath = "//div[@class='category-cards']//h5[text()='Book Store Application']")
     private WebElement bookStoreApplicationCategory;
 
-
     public boolean waitForHomePageContent(){
         try {
             new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions
