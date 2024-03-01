@@ -42,7 +42,7 @@ public class HomePage {
     public boolean waitForHomePageContent(){
         try {
             new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions
-                    .elementToBeClickable(elementsCategory));
+                    .visibilityOf(elementsCategory));
         }
         catch (TimeoutException exception){
             return false;
