@@ -3,6 +3,7 @@ package library.pages.elements;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -11,6 +12,10 @@ import java.time.Duration;
 import static drivers.Driver.driver;
 
 public class TextBoxPage {
+    public TextBoxPage(){
+        PageFactory.initElements(driver, this);
+    }
+
     @FindBy(xpath = "//h1[text()='Text Box']")
     WebElement textBoxPageTitle;
 
@@ -25,4 +30,6 @@ public class TextBoxPage {
 
         return true;
     }
+
+
 }

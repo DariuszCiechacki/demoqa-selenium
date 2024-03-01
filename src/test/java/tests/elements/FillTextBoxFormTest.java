@@ -5,9 +5,11 @@ import library.modules.SidebarMenu;
 import library.pages.HomePage;
 import library.pages.elements.TextBoxPage;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class FillTextBoxFormTest extends TestCase {
 
+    @Test
     public void fillTextBoxFormTest(){
         boolean homePageVisible = new HomePage().waitForHomePageContent();
         Assert.assertTrue(homePageVisible,"Home page is not visible");

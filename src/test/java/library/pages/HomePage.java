@@ -16,9 +16,12 @@ import java.time.Duration;
 import static drivers.Driver.driver;
 
 public class HomePage {
-    public HomePage(){
+    public HomePage() {
         PageFactory.initElements(driver, this);
     }
+
+    @FindBy(xpath = "//button[contains(@class,'consent fc-primary-button')]")
+    private WebElement acceptConsentButton;
 
     @FindBy(xpath = "//h5[text()='Elements']")
     private WebElement elementsCategory;
@@ -47,6 +50,8 @@ public class HomePage {
             return false;
         }
 
+        closeConsentModal();
+
         return true;
     }
 
@@ -54,5 +59,11 @@ public class HomePage {
         elementsCategory.click();
 
         return new SidebarMenu();
+    }
+
+    private void closeConsentModal(){
+        if (acceptConsentButton.isDisplayed()){
+            acceptConsentButton.click();
+        }
     }
 }
