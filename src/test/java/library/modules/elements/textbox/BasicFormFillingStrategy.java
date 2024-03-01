@@ -1,6 +1,6 @@
-package library.modules.textbox;
+package library.modules.elements.textbox;
 
-import library.modules.forms.FormsDto;
+import library.modules.common.forms.FormsDto;
 import library.pages.elements.TextBoxPage;
 
 public class BasicFormFillingStrategy implements FormFillingStrategy{

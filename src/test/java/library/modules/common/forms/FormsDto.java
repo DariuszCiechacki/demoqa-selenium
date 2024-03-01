@@ -1,4 +1,4 @@
-package library.modules.forms;
+package library.modules.common.forms;
 
 public class FormsDto {
     private String fullName;

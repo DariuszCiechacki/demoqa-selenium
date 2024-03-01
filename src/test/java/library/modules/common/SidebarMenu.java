@@ -1,4 +1,4 @@
-package library.modules;
+package library.modules.common;
 
 import library.pages.elements.TextBoxPage;
 import org.openqa.selenium.By;

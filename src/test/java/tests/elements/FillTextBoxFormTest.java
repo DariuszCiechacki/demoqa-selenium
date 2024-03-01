@@ -1,10 +1,9 @@
 package tests.elements;
 
 import library.TestCase;
-import library.modules.SidebarMenu;
-import library.modules.forms.FormsFactory;
-import library.modules.textbox.BasicFormFillingStrategy;
-import library.modules.textbox.FormFillingStrategy;
+import library.modules.common.SidebarMenu;
+import library.modules.common.forms.FormsFactory;
+import library.modules.elements.textbox.BasicFormFillingStrategy;
 import library.pages.HomePage;
 import library.pages.elements.TextBoxPage;
 import org.testng.Assert;

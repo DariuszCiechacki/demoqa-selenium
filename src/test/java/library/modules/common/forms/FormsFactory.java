@@ -1,8 +1,8 @@
-package library.modules.forms;
+package library.modules.common.forms;
 
 import com.github.javafaker.Faker;
 
-import static library.modules.DefaultData.defaultEmail;
+import static library.modules.common.DefaultData.defaultEmail;
 
 public class FormsFactory {
     public static FormsDto createFormsData(){

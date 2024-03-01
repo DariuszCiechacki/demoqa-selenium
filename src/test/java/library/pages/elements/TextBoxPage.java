@@ -1,7 +1,7 @@
 package library.pages.elements;
 
-import library.modules.forms.FormsDto;
-import library.modules.textbox.FormFillingStrategy;
+import library.modules.common.forms.FormsDto;
+import library.modules.elements.textbox.FormFillingStrategy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
