@@ -1,6 +1,7 @@
 package library.pages;
 
 import library.modules.common.SidebarMenu;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -59,8 +60,11 @@ public class HomePage {
     }
 
     private void closeConsentModal(){
-        if (acceptConsentButton.isDisplayed()){
-            acceptConsentButton.click();
+        try {
+            if (acceptConsentButton.isDisplayed()){
+                acceptConsentButton.click();
+            }
         }
+        catch (NoSuchElementException exception){}
     }
 }
