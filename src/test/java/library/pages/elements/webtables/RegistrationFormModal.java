@@ -2,6 +2,8 @@ package library.pages.elements.webtables;
 
 import library.modules.common.forms.FormsDto;
 import library.modules.strategies.FormFillingStrategy;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static drivers.Driver.driver;
@@ -47,6 +50,17 @@ public class RegistrationFormModal {
 
         return true;
     }
+    
+    public RegistrationFormModal clearRegistrationFormData(){
+        List<WebElement> filledFields = driver.findElements(By.xpath("//form[@id='userForm']//input"));
+        filledFields.forEach(field ->{
+            field.sendKeys(Keys.SHIFT, Keys.ARROW_UP);
+            field.sendKeys(Keys.BACK_SPACE);
+        });
+
+        return this;
+    }
+
 
     public RegistrationFormModal fillRegistrationForm(FormFillingStrategy strategy, FormsDto registrationFormData){
         strategy.fillForm(registrationFormData);
