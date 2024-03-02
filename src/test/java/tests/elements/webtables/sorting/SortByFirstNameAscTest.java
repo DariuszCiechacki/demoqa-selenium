@@ -24,8 +24,9 @@ public class SortByFirstNameAscTest extends TestCase {
 
         Assert.assertTrue(webTablesPage.tableElement.isDisplayed(),
                 "Table is not visible");
+        Assert.assertTrue(webTablesPage.countTableRecords() >= 2,
+                "Table has less than 2 records");
 
-        Assert.assertTrue(webTablesPage.countTableRecords() >= 2, "Table has less than 2 records");
 
     }
 }

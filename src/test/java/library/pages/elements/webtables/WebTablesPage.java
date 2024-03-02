@@ -1,6 +1,8 @@
 package library.pages.elements.webtables;
 
+import library.modules.webtables.SortingType;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -84,6 +86,14 @@ public class WebTablesPage {
                 .click();
 
         return this;
+    }
+
+    private void sortColumn(String columnName, SortingType sortingType){
+        WebElement columnStatus = driver.findElement(By.xpath("//div[text()='"+columnName+"']" +
+                "//parent::div[@role='columnheader']"));
+        while (columnStatus.getAttribute("class").contains(sortingType.createSortingType())){
+            columnStatus.click();
+        }
     }
 
     public RegistrationFormModal navigateToAddNewRecordForm(){
