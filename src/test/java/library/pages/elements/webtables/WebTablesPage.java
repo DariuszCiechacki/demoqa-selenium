@@ -1,6 +1,9 @@
 package library.pages.elements.webtables;
 
+import library.modules.webtables.ColumnName;
+import library.modules.webtables.SortingType;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -82,6 +85,16 @@ public class WebTablesPage {
     public WebTablesPage deleteTableRecord(){
         driver.findElement(By.xpath("//span[contains(@id,'delete-record')]"))
                 .click();
+
+        return this;
+    }
+
+    public WebTablesPage sortColumn(ColumnName columnName, SortingType sortingType){
+        WebElement columnStatus = driver.findElement(By.xpath("//div[text()='"+columnName.createColumnName()+"']" +
+                "//parent::div[@role='columnheader']"));
+        while (!columnStatus.getAttribute("class").contains(sortingType.createSortingType())){
+            columnStatus.click();
+        }
 
         return this;
     }
