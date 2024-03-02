@@ -42,7 +42,8 @@ public class AddNewRecordTest extends TestCase {
 
         Map<String, String> registrationFormData = registrationFormModal.getRegistrationFormData();
 
-        registrationFormModal.submitForm();
+        webTablesPage = registrationFormModal.submitForm();
+        webTablesPage.enterSearchBoxValue(registrationFormData.get("email"));
 
 
     }

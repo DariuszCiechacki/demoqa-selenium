@@ -43,4 +43,10 @@ public class WebTablesPage {
 
         return new RegistrationFormModal();
     }
+
+    public WebTablesPage enterSearchBoxValue(String value){
+        searchBoxInput.sendKeys(value);
+
+        return this;
+    }
 }
