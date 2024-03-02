@@ -12,6 +12,7 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import static drivers.Driver.driver;
 
@@ -75,6 +76,17 @@ public class WebTablesPage {
 
     public RegistrationFormModal navigateToAddNewRecordForm(){
         addNewRecordButton.click();
+
+        return new RegistrationFormModal();
+    }
+
+    public RegistrationFormModal navigateToEditRandomRecordForm(){
+        List<WebElement> editRecordButtons = driver.findElements(
+                By.xpath("//div[contains(@class,'action-buttons')]//span[contains(@id,'edit-record')]"));
+
+        int random = new Random().nextInt(editRecordButtons.size());
+
+        editRecordButtons.get(random).click();
 
         return new RegistrationFormModal();
     }
