@@ -37,9 +37,9 @@ public class SortByAgeDescTest extends TestCase {
 
         Map<String, Map<String, String>> webTableData = webTablesPage.getWebTableData();
 
-        List<String> firstNameColumnValues = webTableData.values().stream()
+        List<Integer> firstNameColumnValues = webTableData.values().stream()
                 .filter(rowData -> rowData.containsKey("age"))
-                .map(rowData -> rowData.get("age"))
+                .map(rowData -> Integer.valueOf(rowData.get("age")))
                 .toList();
 
         Assert.assertEquals(firstNameColumnValues, firstNameColumnValues.stream().sorted(Comparator.reverseOrder()).toList(),

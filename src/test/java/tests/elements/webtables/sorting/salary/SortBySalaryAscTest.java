@@ -36,9 +36,9 @@ public class SortBySalaryAscTest extends TestCase {
 
         Map<String, Map<String, String>> webTableData = webTablesPage.getWebTableData();
 
-        List<String> firstNameColumnValues = webTableData.values().stream()
+        List<Integer> firstNameColumnValues = webTableData.values().stream()
                 .filter(rowData -> rowData.containsKey("salary"))
-                .map(rowData -> rowData.get("salary"))
+                .map(rowData -> Integer.valueOf(rowData.get("salary")))
                 .toList();
 
         Assert.assertEquals(firstNameColumnValues, firstNameColumnValues.stream().sorted().toList(),
