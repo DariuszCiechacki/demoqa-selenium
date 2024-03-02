@@ -43,6 +43,6 @@ public class SortByFirstNameDescTest extends TestCase {
                 .toList();
 
         Assert.assertEquals(firstNameColumnValues, firstNameColumnValues.stream().sorted(Comparator.reverseOrder()).toList(),
-                "Table column is not sorted in descending order");
+                "First name column is not sorted in descending order");
     }
 }

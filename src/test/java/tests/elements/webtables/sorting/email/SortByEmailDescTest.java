@@ -1,4 +1,4 @@
-package tests.elements.webtables.sorting.firstname;
+package tests.elements.webtables.sorting.email;
 
 import library.TestCase;
 import library.modules.common.SidebarMenu;
@@ -9,16 +9,14 @@ import library.pages.elements.webtables.WebTablesPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
 
-public class SortByFirstNameAscTest extends TestCase {
+public class SortByEmailDescTest extends TestCase {
 
-    @Test(description = "Sort table by first name ascending")
-    public void sortByFirstNameAscTest(){
+    @Test(description = "Sort table by email descending")
+    public void sortByEmailDescTest(){
         boolean homePageVisible = new HomePage().waitForHomePageContent();
         Assert.assertTrue(homePageVisible, "Home page is not visible");
 
@@ -35,16 +33,16 @@ public class SortByFirstNameAscTest extends TestCase {
         Assert.assertTrue(webTablesPage.countTableRecords() >= 2,
                 "Table has less than 2 records");
 
-        webTablesPage.sortColumn(ColumnName.FIRST_NAME, SortingType.ASC);
+        webTablesPage.sortColumn(ColumnName.EMAIL, SortingType.DESC);
 
         Map<String, Map<String, String>> webTableData = webTablesPage.getWebTableData();
 
         List<String> firstNameColumnValues = webTableData.values().stream()
-                .filter(rowData -> rowData.containsKey("firstName"))
-                .map(rowData -> rowData.get("firstName"))
+                .filter(rowData -> rowData.containsKey("email"))
+                .map(rowData -> rowData.get("email"))
                 .toList();
 
-        Assert.assertEquals(firstNameColumnValues, firstNameColumnValues.stream().sorted().toList(),
-                "First name column is not sorted in ascending order");
+        Assert.assertEquals(firstNameColumnValues, firstNameColumnValues.stream().sorted(Comparator.reverseOrder()).toList(),
+                "Email column is not sorted in descending order");
     }
 }
