@@ -1,4 +1,4 @@
-package tests.elements.webtables.sorting.firstname;
+package tests.elements.webtables.sorting.lastname;
 
 import library.TestCase;
 import library.modules.common.SidebarMenu;
@@ -13,10 +13,10 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
-public class SortByFirstNameDscTest extends TestCase {
+public class SortByLastNameDescTest extends TestCase {
 
-    @Test(description = "Sort table by first name ascending")
-    public void sortByFirstNameAscTest(){
+    @Test(description = "Sort table by last name descending")
+    public void sortByLastNameDescTest(){
         boolean homePageVisible = new HomePage().waitForHomePageContent();
         Assert.assertTrue(homePageVisible, "Home page is not visible");
 
@@ -33,16 +33,16 @@ public class SortByFirstNameDscTest extends TestCase {
         Assert.assertTrue(webTablesPage.countTableRecords() >= 2,
                 "Table has less than 2 records");
 
-        webTablesPage.sortColumn(ColumnName.FIRST_NAME, SortingType.DESC);
+        webTablesPage.sortColumn(ColumnName.LAST_NAME, SortingType.DESC);
 
         Map<String, Map<String, String>> webTableData = webTablesPage.getWebTableData();
 
         List<String> firstNameColumnValues = webTableData.values().stream()
-                .filter(rowData -> rowData.containsKey("firstName"))
-                .map(rowData -> rowData.get("firstName"))
+                .filter(rowData -> rowData.containsKey("lastName"))
+                .map(rowData -> rowData.get("lastName"))
                 .toList();
 
         Assert.assertEquals(firstNameColumnValues, firstNameColumnValues.stream().sorted(Comparator.reverseOrder()).toList(),
-                "Table column is not sorted in descending order");
+                "Last name column is not sorted in descending order");
     }
 }
