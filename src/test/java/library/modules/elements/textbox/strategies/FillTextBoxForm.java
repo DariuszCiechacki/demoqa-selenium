@@ -1,5 +1,6 @@
-package library.modules.elements.textbox;
+package library.modules.elements.textbox.strategies;
 
+import library.modules.elements.textbox.TextBoxFormDto;
 import library.pages.elements.TextBoxPage;
 
 public class FillTextBoxForm implements TextBoxFormFillingStrategy {

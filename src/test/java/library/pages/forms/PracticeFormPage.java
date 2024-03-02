@@ -1,7 +1,7 @@
 package library.pages.forms;
 
 import library.modules.forms.StudentRegistrationFormDto;
-import library.modules.forms.StudentRegistrationFormFillingStrategy;
+import library.modules.forms.strategies.StudentRegistrationFormFillingStrategy;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

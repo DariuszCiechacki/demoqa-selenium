@@ -2,9 +2,8 @@ package tests.elements;
 
 import library.TestCase;
 import library.modules.common.SidebarMenu;
-import library.modules.elements.textbox.FillTextBoxForm;
+import library.modules.elements.textbox.strategies.FillTextBoxForm;
 import library.modules.elements.textbox.TextBoxFormFactory;
-import library.modules.elements.textbox.TextBoxFormFillingStrategy;
 import library.pages.HomePage;
 import library.pages.elements.TextBoxPage;
 import org.testng.Assert;

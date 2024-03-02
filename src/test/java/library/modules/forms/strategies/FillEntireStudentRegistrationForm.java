@@ -1,5 +1,6 @@
-package library.modules.forms;
+package library.modules.forms.strategies;
 
+import library.modules.forms.StudentRegistrationFormDto;
 import library.pages.forms.PracticeFormPage;
 
 public class FillEntireStudentRegistrationForm implements StudentRegistrationFormFillingStrategy {
