@@ -1,8 +1,7 @@
 package library.pages.forms;
 
-import library.modules.common.forms.FormsDto;
-import library.modules.strategies.FormFillingStrategy;
-import library.pages.elements.TextBoxPage;
+import library.modules.forms.StudentRegistrationFormDto;
+import library.modules.forms.StudentRegistrationFormFillingStrategy;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -47,8 +46,8 @@ public class PracticeFormPage {
         return true;
     }
 
-    public PracticeFormPage fillFormWithStrategy(FormFillingStrategy strategy, FormsDto formData) {
-        strategy.fillForm(formData);
+    public PracticeFormPage fillStudentRegistrationForm(StudentRegistrationFormFillingStrategy strategy, StudentRegistrationFormDto studentRegistrationFormData) {
+        strategy.fillStudentRegistrationForm(studentRegistrationFormData);
 
         return this;
     }

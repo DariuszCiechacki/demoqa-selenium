@@ -1,9 +1,8 @@
 package library.pages.elements.webtables;
 
-import library.modules.webtables.ColumnName;
-import library.modules.webtables.SortingType;
+import library.modules.elements.webtables.ColumnName;
+import library.modules.elements.webtables.SortingType;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
