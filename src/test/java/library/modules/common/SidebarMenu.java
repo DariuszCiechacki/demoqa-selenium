@@ -1,6 +1,7 @@
 package library.modules.common;
 
 import library.pages.elements.ButtonsPage;
+import library.pages.elements.LinksPage;
 import library.pages.elements.TextBoxPage;
 import library.pages.elements.webtables.WebTablesPage;
 import org.openqa.selenium.By;
@@ -40,6 +41,17 @@ public class SidebarMenu {
         categoryName.click();
 
         return new WebTablesPage();
+    }
+
+    public LinksPage navigateToLinksPage(){
+        WebElement categoryName = driver.findElement(By.xpath("//div[@class='left-pannel']//*[text()='Links']"));
+        if (!categoryName.isEnabled()){
+            expandMainCategoryIfNecessary("Elements");
+        }
+
+        categoryName.click();
+
+        return new LinksPage();
     }
 
     private void expandMainCategoryIfNecessary(String mainCategoryText){
