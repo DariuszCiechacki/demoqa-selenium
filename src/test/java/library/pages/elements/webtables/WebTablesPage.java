@@ -74,6 +74,18 @@ public class WebTablesPage {
         return this;
     }
 
+    public int countTableRecords(){
+        return driver.findElements(By.xpath("//div[@class='action-buttons']"))
+                .size();
+    }
+
+    public WebTablesPage deleteTableRecord(){
+        driver.findElement(By.xpath("//span[contains(@id,'delete-record')]"))
+                .click();
+
+        return this;
+    }
+
     public RegistrationFormModal navigateToAddNewRecordForm(){
         addNewRecordButton.click();
 
