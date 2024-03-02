@@ -92,8 +92,10 @@ public class WebTablesPage {
     public WebTablesPage sortColumn(ColumnName columnName, SortingType sortingType){
         WebElement columnStatus = driver.findElement(By.xpath("//div[text()='"+columnName.createColumnName()+"']" +
                 "//parent::div[@role='columnheader']"));
-        while (!columnStatus.getAttribute("class").contains(sortingType.createSortingType())){
+        int i = 0;
+        while (!columnStatus.getAttribute("class").contains(sortingType.createSortingType()) || i<5){
             columnStatus.click();
+            i++;
         }
 
         return this;
