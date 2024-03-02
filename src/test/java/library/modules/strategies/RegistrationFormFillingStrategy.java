@@ -12,11 +12,11 @@ public class RegistrationFormFillingStrategy implements FormFillingStrategy{
 
     @Override
     public void fillForm(FormsDto formsDto) {
-        registrationFormModal.firstName.sendKeys(formsDto.getFirstName());
-        registrationFormModal.lastName.sendKeys(formsDto.getLastName());
-        registrationFormModal.userEmail.sendKeys(formsDto.getEmail());
-        registrationFormModal.age.sendKeys(formsDto.getAge());
-        registrationFormModal.salary.sendKeys(formsDto.getSalary());
-        registrationFormModal.department.sendKeys(formsDto.getDepartment());
+        registrationFormModal.firstNameInput.sendKeys(formsDto.getFirstName());
+        registrationFormModal.lastNameInput.sendKeys(formsDto.getLastName());
+        registrationFormModal.userEmailInput.sendKeys(formsDto.getEmail());
+        registrationFormModal.ageInput.sendKeys(formsDto.getAge());
+        registrationFormModal.salaryInput.sendKeys(formsDto.getSalary());
+        registrationFormModal.departmentInput.sendKeys(formsDto.getDepartment());
     }
 }
