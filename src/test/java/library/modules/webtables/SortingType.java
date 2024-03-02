@@ -7,9 +7,9 @@ public enum SortingType {
         }
     },
 
-    DSC{
+    DESC {
         public String createSortingType(){
-            return "-sort-dsc";
+            return "-sort-desc";
         }
     };
 

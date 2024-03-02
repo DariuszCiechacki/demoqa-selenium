@@ -21,7 +21,7 @@ public class TestCase {
         navigateToBasePageUrl();
     }
 
-    @AfterTest
+    //@AfterTest
     public static void tearDown() {
         driver.quit();
     }
