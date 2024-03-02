@@ -37,5 +37,9 @@ public class WebTablesPage {
         return true;
     }
 
+    public RegistrationFormModal navigateToAddNewRecordForm(){
+        addNewRecordButton.click();
 
+        return new RegistrationFormModal();
+    }
 }
