@@ -1,4 +1,4 @@
-package library.modules.elements.textbox;
+package library.modules.strategies;
 
 import library.modules.common.forms.FormsDto;
 
