@@ -15,7 +15,13 @@ public class FillEntireStudentRegistrationForm implements StudentRegistrationFor
         practiceFormPage.firstNameInput.sendKeys(studentRegistrationFormData.getFirstName());
         practiceFormPage.lastNameInput.sendKeys(studentRegistrationFormData.getLastName());
         practiceFormPage.userEmailInput.sendKeys(studentRegistrationFormData.getEmail());
+        practiceFormPage.chooseRadioOption(studentRegistrationFormData.getGender());
         practiceFormPage.userNumberInput.sendKeys(studentRegistrationFormData.getMobileNumber());
+        practiceFormPage.dateOfBirthInput.sendKeys(studentRegistrationFormData.getDateOfBirth());
+        practiceFormPage.selectSubjects(studentRegistrationFormData.getSubjects());
+        practiceFormPage.checkHobbies(studentRegistrationFormData.getHobbies());
         practiceFormPage.currentAddressInput.sendKeys(studentRegistrationFormData.getCurrentAddress());
+        practiceFormPage.selectState(studentRegistrationFormData.getState());
+        practiceFormPage.selectCity(studentRegistrationFormData.getCity());
     }
 }
