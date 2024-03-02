@@ -21,19 +21,19 @@ public class PracticeFormPage {
     @FindBy(xpath = "//h1[text()='Practice Form']")
     WebElement practiceFormPageTitle;
     @FindBy(id = "firstName")
-    WebElement firstNameInput;
+    public WebElement firstNameInput;
     @FindBy(id = "lastName")
-    WebElement lastNameInput;
+    public WebElement lastNameInput;
     @FindBy(id = "userEmail")
-    WebElement userEmailInput;
+    public WebElement userEmailInput;
     @FindBy(id = "userNumber")
-    WebElement userNumberInput;
+    public WebElement userNumberInput;
     @FindBy(id = "dateOfBirthInput")
-    WebElement dateOfBirthInput;
+    public WebElement dateOfBirthInput;
     @FindBy(id = "uploadPicture")
-    WebElement uploadPictureButton;
+    public WebElement uploadPictureButton;
     @FindBy(id = "currentAddress")
-    WebElement currentAddressInput;
+    public WebElement currentAddressInput;
 
     public boolean waitForPracticeFormPageContent(){
         try {

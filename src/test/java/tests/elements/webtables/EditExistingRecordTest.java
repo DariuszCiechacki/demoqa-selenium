@@ -3,7 +3,7 @@ package tests.elements.webtables;
 import library.TestCase;
 import library.modules.common.SidebarMenu;
 import library.modules.common.forms.FormsFactory;
-import library.modules.strategies.RegistrationFormFillingStrategy;
+import library.modules.webtables.RegistrationFormFillingStrategy;
 import library.pages.HomePage;
 import library.pages.elements.webtables.RegistrationFormModal;
 import library.pages.elements.webtables.WebTablesPage;

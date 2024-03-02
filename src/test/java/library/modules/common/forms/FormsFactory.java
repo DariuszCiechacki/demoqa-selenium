@@ -30,4 +30,17 @@ public class FormsFactory {
 
         return registrationFormData;
     }
+
+    public static FormsDto createStudentRegistrationFormData(){
+        FormsDto studentRegistrationFormData = new FormsDto();
+        Faker faker = new Faker();
+
+        studentRegistrationFormData.setFirstName(faker.name().firstName());
+        studentRegistrationFormData.setLastName(faker.name().lastName());
+        studentRegistrationFormData.setEmail(defaultEmail);
+        studentRegistrationFormData.setMobileNumber(faker.phoneNumber().phoneNumber());
+        studentRegistrationFormData.setCurrentAddress(faker.address().fullAddress());
+
+        return studentRegistrationFormData;
+    }
 }

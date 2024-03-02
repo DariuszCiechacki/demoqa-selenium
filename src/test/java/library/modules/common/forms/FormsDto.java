@@ -5,12 +5,12 @@ public class FormsDto {
     private String email;
     private String currentAddress;
     private String permanentAddress;
-
     private String firstName;
     private String lastName;
     private String age;
     private String salary;
     private String department;
+    private String mobileNumber;
 
     public String getFullName() {
         return fullName;
@@ -82,5 +82,13 @@ public class FormsDto {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
     }
 }

@@ -1,9 +1,10 @@
-package library.modules.strategies;
+package library.modules.webtables;
 
 import library.modules.common.forms.FormsDto;
+import library.modules.strategies.FormFillingStrategy;
 import library.pages.elements.webtables.RegistrationFormModal;
 
-public class RegistrationFormFillingStrategy implements FormFillingStrategy{
+public class RegistrationFormFillingStrategy implements FormFillingStrategy {
     private final RegistrationFormModal registrationFormModal;
 
     public RegistrationFormFillingStrategy(RegistrationFormModal registrationFormModal) {
