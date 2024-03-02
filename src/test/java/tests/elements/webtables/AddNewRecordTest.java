@@ -12,6 +12,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.Map;
+import java.util.function.Predicate;
 
 public class AddNewRecordTest extends TestCase {
 
@@ -44,11 +45,7 @@ public class AddNewRecordTest extends TestCase {
 
         webTablesPage = registrationFormModal.submitForm();
 
-        Map<String , Map<String, String>> webTableData = webTablesPage.getWebTableData();
-
-        System.out.println(registrationFormData);
-        System.out.println(webTableData);
-        Assert.assertTrue(webTableData.entrySet().contains(registrationFormData),
+        Assert.assertTrue(webTablesPage.getWebTableData().values().stream().anyMatch(Predicate.isEqual(registrationFormData)),
                 "Incorrect added record data");
     }
 }
