@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 
 import static drivers.Driver.driver;
 
@@ -48,8 +50,23 @@ public class RegistrationFormModal {
         return this;
     }
 
+    public Map<String, String> getRegistrationFormData(){
+        Map<String, String> registrationFormData = new HashMap<>();
+
+        registrationFormData.put("firstName", firstNameInput.getAttribute("value"));
+        registrationFormData.put("lastName", lastNameInput.getAttribute("value"));
+        registrationFormData.put("email", userEmailInput.getAttribute("value"));
+        registrationFormData.put("age", ageInput.getAttribute("value"));
+        registrationFormData.put("salary", salaryInput.getAttribute("value"));
+        registrationFormData.put("department", departmentInput.getAttribute("value"));
+
+        return registrationFormData;
+    }
+
     public WebTablesPage submitForm(){
         submitFormButton.click();
+
+        waitForRegistrationFormModalToClose();
 
         return new WebTablesPage();
     }

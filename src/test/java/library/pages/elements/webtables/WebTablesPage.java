@@ -18,7 +18,8 @@ public class WebTablesPage {
 
     @FindBy(xpath = "//h1[text()='Web Tables']")
     WebElement webTablesPageTitle;
-
+    @FindBy(xpath = "//div[contains(@class,'rt-table')]")
+    public WebElement tableElement;
     @FindBy(id = "addNewRecordButton")
     WebElement addNewRecordButton;
 
