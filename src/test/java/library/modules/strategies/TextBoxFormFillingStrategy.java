@@ -1,12 +1,12 @@
-package library.modules.elements.textbox;
+package library.modules.strategies;
 
 import library.modules.common.forms.FormsDto;
 import library.pages.elements.TextBoxPage;
 
-public class BasicFormFillingStrategy implements FormFillingStrategy{
+public class TextBoxFormFillingStrategy implements FormFillingStrategy{
     private final TextBoxPage textBoxPage;
 
-    public BasicFormFillingStrategy(TextBoxPage textBoxPage) {
+    public TextBoxFormFillingStrategy(TextBoxPage textBoxPage) {
         this.textBoxPage = textBoxPage;
     }
 
