@@ -46,5 +46,13 @@ public class AddNewRecordTest extends TestCase {
 
         Assert.assertTrue(webTablesPage.getWebTableData().values().stream().anyMatch(Predicate.isEqual(registrationFormData)),
                 "Incorrect added record data");
+
+        webTablesPage.enterSearchBoxValue(registrationFormData.get("lastName"));
+
+        Assert.assertEquals(webTablesPage.countTableRecords(), 1,
+                "Incorrect records number found");
+
+        Assert.assertTrue(webTablesPage.getWebTableData().containsValue(registrationFormData),
+                "Incorrect searched record data");
     }
 }
