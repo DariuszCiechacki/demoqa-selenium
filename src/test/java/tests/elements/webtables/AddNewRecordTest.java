@@ -43,8 +43,12 @@ public class AddNewRecordTest extends TestCase {
         Map<String, String> registrationFormData = registrationFormModal.getRegistrationFormData();
 
         webTablesPage = registrationFormModal.submitForm();
-        webTablesPage.enterSearchBoxValue(registrationFormData.get("email"));
 
+        Map<String , Map<String, String>> webTableData = webTablesPage.getWebTableData();
 
+        System.out.println(registrationFormData);
+        System.out.println(webTableData);
+        Assert.assertTrue(webTableData.entrySet().contains(registrationFormData),
+                "Incorrect added record data");
     }
 }

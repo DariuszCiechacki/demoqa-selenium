@@ -5,6 +5,7 @@ import library.modules.strategies.FormFillingStrategy;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,6 +16,9 @@ import java.util.Map;
 import static drivers.Driver.driver;
 
 public class RegistrationFormModal {
+    public RegistrationFormModal(){
+        PageFactory.initElements(driver, this);
+    }
     @FindBy(id = "registration-form-modal")
     WebElement registrationFormModalTitle;
     @FindBy(id = "firstName")

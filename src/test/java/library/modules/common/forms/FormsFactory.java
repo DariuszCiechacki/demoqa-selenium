@@ -25,7 +25,7 @@ public class FormsFactory {
         registrationFormData.setLastName(faker.name().lastName());
         registrationFormData.setEmail(defaultEmail);
         registrationFormData.setAge(String.valueOf(faker.number().numberBetween(1, 99)));
-        registrationFormData.setSalary(faker.commerce().price());
+        registrationFormData.setSalary(String.valueOf(faker.number().numberBetween(1, 999999999)));
         registrationFormData.setDepartment(faker.funnyName().name());
 
         return registrationFormData;
