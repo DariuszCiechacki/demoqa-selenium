@@ -19,7 +19,7 @@ public abstract class PracticeFormPageElements {
     @FindBy(id = "userEmail")
     public WebElement userEmailInput;
     @FindBy(id = "userNumber")
-    public WebElement userNumberInput;
+    public WebElement userMobileNumberInput;
     @FindBy(id = "dateOfBirthInput")
     public WebElement dateOfBirthInput;
     @FindBy(id = "uploadPicture")

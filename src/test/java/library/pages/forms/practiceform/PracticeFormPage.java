@@ -4,7 +4,9 @@ import library.modules.forms.practiceform.PracticeFormPageElements;
 import library.modules.forms.practiceform.StudentRegistrationFormDto;
 import library.modules.forms.practiceform.strategies.FillStudentRegistrationFormStrategies;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -35,12 +37,24 @@ public class PracticeFormPage extends PracticeFormPageElements {
     public Map<String, String> getStudentRegistrationFormData(){
         Map<String, String> studentRegistrationFormData = new HashMap<>();
 
+        studentRegistrationFormData.put("firstName", firstNameInput.getAttribute("value"));
+        studentRegistrationFormData.put("lastName", lastNameInput.getAttribute("value"));
+        studentRegistrationFormData.put("email", userEmailInput.getAttribute("value"));
+        //studentRegistrationFormData.put("gender", firstNameInput.getAttribute("value"));
+        studentRegistrationFormData.put("mobileNumber", userMobileNumberInput.getAttribute("value"));
+        studentRegistrationFormData.put("dateOfBirth", dateOfBirthInput.getAttribute("value"));
+        //studentRegistrationFormData.put("subjects", firstNameInput.getAttribute("value"));
+        //studentRegistrationFormData.put("hobbies", firstNameInput.getAttribute("value"));
+        studentRegistrationFormData.put("currentAddress", currentAddressInput.getAttribute("value"));
+        //studentRegistrationFormData.put("state", firstNameInput.getAttribute("value"));
+        //studentRegistrationFormData.put("city", firstNameInput.getAttribute("value"));
 
         return studentRegistrationFormData;
     }
 
     public void chooseRadioOption(String optionValue){
-        driver.findElement(By.xpath("//input[@name='gender' and @value='"+optionValue+"']"));
+        driver.findElement(By.xpath("//input[@name='gender' and @value='"+optionValue+"']//following-sibling::label"))
+                .click();
     }
 
     public void selectSubjects(String... subjects){
@@ -70,8 +84,10 @@ public class PracticeFormPage extends PracticeFormPageElements {
     }
 
     public SubmittedFormModal submitForm(){
-        submitFormButton.click();
+        //new Actions(driver).moveToElement(submitFormButton).click().perform();
 
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", submitFormButton);
+        submitFormButton.click();
         return new SubmittedFormModal();
     }
 }

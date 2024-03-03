@@ -7,8 +7,8 @@ public class StudentRegistrationFormDto {
     private String gender;
     private String mobileNumber;
     private String dateOfBirth;
-    private String[] subjects;
-    private String[] hobbies;
+    private String subjects;
+    private String hobbies;
     private String currentAddress;
     private String state;
     private String city;
@@ -61,19 +61,19 @@ public class StudentRegistrationFormDto {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String[] getSubjects() {
+    public String getSubjects() {
         return subjects;
     }
 
-    public void setSubjects(String[] subjects) {
+    public void setSubjects(String subjects) {
         this.subjects = subjects;
     }
 
-    public String[] getHobbies() {
+    public String getHobbies() {
         return hobbies;
     }
 
-    public void setHobbies(String[] hobbies) {
+    public void setHobbies(String hobbies) {
         this.hobbies = hobbies;
     }
 

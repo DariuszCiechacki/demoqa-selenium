@@ -44,7 +44,7 @@ public class SidebarMenu {
     }
 
     public PracticeFormPage navigateToPracticeFormPage(){
-        WebElement categoryName = driver.findElement(By.xpath("//div[@class='left-pannel']//*[text()='Practice form']"));
+        WebElement categoryName = driver.findElement(By.xpath("//div[@class='left-pannel']//*[text()='Practice Form']"));
         if (!categoryName.isEnabled()){
             expandMainCategoryIfNecessary("Forms");
         }

@@ -1,5 +1,6 @@
 package library.pages.forms.practiceform;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,13 +14,10 @@ import java.util.Map;
 import static drivers.Driver.driver;
 
 public class SubmittedFormModal {
-    @FindBy(id = "")
-    WebElement submittedFormModalTitle;
-
     public boolean waitForSubmittedFormModalContent(){
         try {
             new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions
-                    .elementToBeClickable(submittedFormModalTitle));
+                    .visibilityOfElementLocated(By.xpath("//div[@class='modal-header']")));
         }
         catch (TimeoutException exception){
             return false;

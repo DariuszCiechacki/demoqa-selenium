@@ -35,7 +35,7 @@ public class FillStudentRegistrationFormStrategies implements FillFormStrategy {
         practiceFormPage.lastNameInput.sendKeys(studentRegistrationFormData.getLastName());
         practiceFormPage.userEmailInput.sendKeys(studentRegistrationFormData.getEmail());
         practiceFormPage.chooseRadioOption(studentRegistrationFormData.getGender());
-        practiceFormPage.userNumberInput.sendKeys(studentRegistrationFormData.getMobileNumber());
+        practiceFormPage.userMobileNumberInput.sendKeys(studentRegistrationFormData.getMobileNumber());
         practiceFormPage.dateOfBirthInput.sendKeys(studentRegistrationFormData.getDateOfBirth());
         practiceFormPage.selectSubjects(studentRegistrationFormData.getSubjects());
         practiceFormPage.checkHobbies(studentRegistrationFormData.getHobbies());
@@ -49,6 +49,6 @@ public class FillStudentRegistrationFormStrategies implements FillFormStrategy {
         practiceFormPage.firstNameInput.sendKeys(studentRegistrationFormData.getFirstName());
         practiceFormPage.lastNameInput.sendKeys(studentRegistrationFormData.getLastName());
         practiceFormPage.chooseRadioOption(studentRegistrationFormData.getGender());
-        practiceFormPage.userNumberInput.sendKeys(studentRegistrationFormData.getMobileNumber());
+        practiceFormPage.userMobileNumberInput.sendKeys(studentRegistrationFormData.getMobileNumber());
     }
 }
