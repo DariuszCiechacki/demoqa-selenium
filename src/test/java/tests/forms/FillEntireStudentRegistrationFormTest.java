@@ -2,6 +2,9 @@ package tests.forms;
 
 import library.TestCase;
 import library.modules.common.SidebarMenu;
+import library.modules.forms.StudentRegistrationFormFactory;
+import library.modules.forms.strategies.FillStudentRegistrationForm;
+import library.modules.forms.strategies.StudentRegistrationFormFillingStrategy;
 import library.pages.HomePage;
 import library.pages.elements.TextBoxPage;
 import library.pages.forms.PracticeFormPage;
@@ -21,5 +24,9 @@ public class FillEntireStudentRegistrationFormTest extends TestCase {
 
         boolean practiceFormPageVisible = practiceFormPage.waitForPracticeFormPageContent();
         Assert.assertTrue(practiceFormPageVisible, "Practice form page is not visible");
+
+        practiceFormPage.fillStudentRegistrationForm(
+                StudentRegistrationFormFactory.createRequiredStudentRegistrationFormData("MaleGender"),
+                FillStudentRegistrationForm.StrategyType.REQUIRED_FIELDS);
     }
 }

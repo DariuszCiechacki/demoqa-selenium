@@ -5,7 +5,7 @@ import com.github.javafaker.Faker;
 import static library.modules.common.DefaultData.defaultEmail;
 
 public class StudentRegistrationFormFactory {
-    public static StudentRegistrationFormDto createStudentRegistrationFormData(String gender, String dateOfBirth,
+    public static StudentRegistrationFormDto createEntireStudentRegistrationFormData(String gender, String dateOfBirth,
                                                                                String[] subjects, String[] hobbies,
                                                                                String state, String city){
         StudentRegistrationFormDto studentRegistrationFormData = new StudentRegistrationFormDto();
@@ -22,6 +22,18 @@ public class StudentRegistrationFormFactory {
         studentRegistrationFormData.setCurrentAddress(faker.address().fullAddress());
         studentRegistrationFormData.setState(state);
         studentRegistrationFormData.setCity(city);
+
+        return studentRegistrationFormData;
+    }
+
+    public static StudentRegistrationFormDto createRequiredStudentRegistrationFormData(String gender){
+        StudentRegistrationFormDto studentRegistrationFormData = new StudentRegistrationFormDto();
+        Faker faker = new Faker();
+
+        studentRegistrationFormData.setFirstName(faker.name().firstName());
+        studentRegistrationFormData.setLastName(faker.name().lastName());
+        studentRegistrationFormData.setGender(gender);
+        studentRegistrationFormData.setMobileNumber(faker.phoneNumber().phoneNumber());
 
         return studentRegistrationFormData;
     }

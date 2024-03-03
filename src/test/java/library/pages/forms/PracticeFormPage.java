@@ -1,7 +1,7 @@
 package library.pages.forms;
 
 import library.modules.forms.StudentRegistrationFormDto;
-import library.modules.forms.strategies.StudentRegistrationFormFillingStrategy;
+import library.modules.forms.strategies.FillStudentRegistrationForm;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
@@ -47,16 +47,8 @@ public class PracticeFormPage {
         return true;
     }
 
-    public PracticeFormPage fillEntireStudentRegistrationForm(StudentRegistrationFormFillingStrategy strategy, StudentRegistrationFormDto studentRegistrationFormData) {
-        strategy.fillEntireStudentRegistrationForm(studentRegistrationFormData);
-
-        return this;
-    }
-
-    public PracticeFormPage fillRequiredStudentRegistrationForm(StudentRegistrationFormFillingStrategy strategy, StudentRegistrationFormDto studentRegistrationFormData) {
-        strategy.fillRequiredStudentRegistrationForm(studentRegistrationFormData);
-
-        return this;
+    public void fillStudentRegistrationForm(StudentRegistrationFormDto studentRegistrationFormData, FillStudentRegistrationForm.StrategyType strategyType) {
+        new FillStudentRegistrationForm(strategyType).fillForm(studentRegistrationFormData, this);
     }
 
     public void chooseRadioOption(String optionValue){

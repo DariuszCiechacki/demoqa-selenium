@@ -1,8 +1,8 @@
 package library.modules.forms.strategies;
 
 import library.modules.forms.StudentRegistrationFormDto;
+import library.pages.forms.PracticeFormPage;
 
 public interface StudentRegistrationFormFillingStrategy {
-    void fillEntireStudentRegistrationForm(StudentRegistrationFormDto studentRegistrationFormData);
-    void fillRequiredStudentRegistrationForm(StudentRegistrationFormDto studentRegistrationFormData);
+    void fillForm(StudentRegistrationFormDto studentRegistrationFormData, PracticeFormPage practiceFormPage);
 }
