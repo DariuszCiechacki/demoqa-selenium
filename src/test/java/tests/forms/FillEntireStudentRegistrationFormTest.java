@@ -12,10 +12,10 @@ import org.testng.annotations.Test;
 
 import java.util.Map;
 
-public class FillRequiredStudentRegistrationFormTest extends TestCase {
+public class FillEntireStudentRegistrationFormTest extends TestCase {
 
-    @Test(description = "Fill only required fields in student registration form test")
-    public void fillRequiredStudentRegistrationFormTest(){
+    @Test(description = "Fill entire student registration form test")
+    public void fillEntireStudentRegistrationFormTest(){
         boolean homePageVisible = new HomePage().waitForHomePageContent();
         Assert.assertTrue(homePageVisible,"Home page is not visible");
 
@@ -27,8 +27,9 @@ public class FillRequiredStudentRegistrationFormTest extends TestCase {
         Assert.assertTrue(practiceFormPageVisible, "Practice form page is not visible");
 
         practiceFormPage.fillStudentRegistrationForm(
-                StudentRegistrationFormFactory.createRequiredStudentRegistrationFormData("MaleGender"),
-                FillStudentRegistrationFormStrategies.StrategyType.REQUIRED_FIELDS);
+                StudentRegistrationFormFactory.createEntireStudentRegistrationFormData(
+                        "", "", "", "", "", ""),
+                FillStudentRegistrationFormStrategies.StrategyType.FULL_FORM);
 
         Map<String, String> studentRegistrationFormData = practiceFormPage.getStudentRegistrationFormData();
 
