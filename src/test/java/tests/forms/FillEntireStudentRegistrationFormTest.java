@@ -2,11 +2,9 @@ package tests.forms;
 
 import library.TestCase;
 import library.modules.common.SidebarMenu;
-import library.modules.forms.StudentRegistrationFormFactory;
-import library.modules.forms.strategies.FillStudentRegistrationForm;
-import library.modules.forms.strategies.StudentRegistrationFormFillingStrategy;
+import library.modules.forms.practiceform.StudentRegistrationFormFactory;
+import library.modules.forms.practiceform.strategies.FillStudentRegistrationFormStrategies;
 import library.pages.HomePage;
-import library.pages.elements.TextBoxPage;
 import library.pages.forms.PracticeFormPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -27,6 +25,6 @@ public class FillEntireStudentRegistrationFormTest extends TestCase {
 
         practiceFormPage.fillStudentRegistrationForm(
                 StudentRegistrationFormFactory.createRequiredStudentRegistrationFormData("MaleGender"),
-                FillStudentRegistrationForm.StrategyType.REQUIRED_FIELDS);
+                FillStudentRegistrationFormStrategies.StrategyType.REQUIRED_FIELDS);
     }
 }

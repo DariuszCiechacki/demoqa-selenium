@@ -1,8 +1,8 @@
 package library.pages.forms;
 
-import library.modules.forms.PracticeFormPageElements;
-import library.modules.forms.StudentRegistrationFormDto;
-import library.modules.forms.strategies.FillStudentRegistrationForm;
+import library.modules.forms.practiceform.PracticeFormPageElements;
+import library.modules.forms.practiceform.StudentRegistrationFormDto;
+import library.modules.forms.practiceform.strategies.FillStudentRegistrationFormStrategies;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,8 +26,8 @@ public class PracticeFormPage extends PracticeFormPageElements {
         return true;
     }
 
-    public void fillStudentRegistrationForm(StudentRegistrationFormDto studentRegistrationFormData, FillStudentRegistrationForm.StrategyType strategyType) {
-        new FillStudentRegistrationForm(strategyType, this).fillForm(studentRegistrationFormData);
+    public void fillStudentRegistrationForm(StudentRegistrationFormDto studentRegistrationFormData, FillStudentRegistrationFormStrategies.StrategyType strategyType) {
+        new FillStudentRegistrationFormStrategies(strategyType, this).fillForm(studentRegistrationFormData);
     }
 
     public void chooseRadioOption(String optionValue){

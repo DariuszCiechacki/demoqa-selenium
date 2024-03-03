@@ -1,4 +1,4 @@
-package library.modules.forms;
+package library.modules.forms.practiceform;
 
 public class StudentRegistrationFormDto {
     private String firstName;

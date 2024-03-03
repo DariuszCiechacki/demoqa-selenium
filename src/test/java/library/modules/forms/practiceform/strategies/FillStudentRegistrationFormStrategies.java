@@ -1,15 +1,14 @@
-package library.modules.forms.strategies;
+package library.modules.forms.practiceform.strategies;
 
-import library.modules.forms.PracticeFormPageElements;
-import library.modules.forms.StudentRegistrationFormDto;
+import library.modules.forms.practiceform.StudentRegistrationFormDto;
 import library.pages.forms.PracticeFormPage;
 
-public class FillStudentRegistrationForm implements StudentRegistrationFormFillingStrategy{
+public class FillStudentRegistrationFormStrategies implements FillFormStrategy {
 
     private final StrategyType strategyType;
     private final PracticeFormPage practiceFormPage;
 
-    public FillStudentRegistrationForm(StrategyType strategyType, PracticeFormPage practiceFormPage) {
+    public FillStudentRegistrationFormStrategies(StrategyType strategyType, PracticeFormPage practiceFormPage) {
         this.strategyType = strategyType;
         this.practiceFormPage = practiceFormPage;
     }
