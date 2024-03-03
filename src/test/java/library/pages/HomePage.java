@@ -59,6 +59,12 @@ public class HomePage {
         return new SidebarMenu();
     }
 
+    public SidebarMenu navigateToFormsCategory(){
+        formsCategory.click();
+
+        return new SidebarMenu();
+    }
+
     private void closeConsentModal(){
         try {
             if (acceptConsentButton.isDisplayed()){

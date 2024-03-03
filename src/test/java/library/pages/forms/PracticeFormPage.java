@@ -47,8 +47,14 @@ public class PracticeFormPage {
         return true;
     }
 
-    public PracticeFormPage fillStudentRegistrationForm(StudentRegistrationFormFillingStrategy strategy, StudentRegistrationFormDto studentRegistrationFormData) {
-        strategy.fillStudentRegistrationForm(studentRegistrationFormData);
+    public PracticeFormPage fillEntireStudentRegistrationForm(StudentRegistrationFormFillingStrategy strategy, StudentRegistrationFormDto studentRegistrationFormData) {
+        strategy.fillEntireStudentRegistrationForm(studentRegistrationFormData);
+
+        return this;
+    }
+
+    public PracticeFormPage fillRequiredStudentRegistrationForm(StudentRegistrationFormFillingStrategy strategy, StudentRegistrationFormDto studentRegistrationFormData) {
+        strategy.fillRequiredStudentRegistrationForm(studentRegistrationFormData);
 
         return this;
     }

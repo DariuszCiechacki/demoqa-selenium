@@ -3,6 +3,7 @@ package library.modules.common;
 import library.pages.elements.ButtonsPage;
 import library.pages.elements.TextBoxPage;
 import library.pages.elements.webtables.WebTablesPage;
+import library.pages.forms.PracticeFormPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -40,6 +41,17 @@ public class SidebarMenu {
         categoryName.click();
 
         return new WebTablesPage();
+    }
+
+    public PracticeFormPage navigateToPracticeFormPage(){
+        WebElement categoryName = driver.findElement(By.xpath("//div[@class='left-pannel']//*[text()='Practice form']"));
+        if (!categoryName.isEnabled()){
+            expandMainCategoryIfNecessary("Forms");
+        }
+
+        categoryName.click();
+
+        return new PracticeFormPage();
     }
 
     private void expandMainCategoryIfNecessary(String mainCategoryText){

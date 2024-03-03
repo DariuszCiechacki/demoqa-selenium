@@ -11,7 +11,7 @@ public class FillEntireStudentRegistrationForm implements StudentRegistrationFor
     }
 
     @Override
-    public void fillStudentRegistrationForm(StudentRegistrationFormDto studentRegistrationFormData) {
+    public void fillEntireStudentRegistrationForm(StudentRegistrationFormDto studentRegistrationFormData) {
         practiceFormPage.firstNameInput.sendKeys(studentRegistrationFormData.getFirstName());
         practiceFormPage.lastNameInput.sendKeys(studentRegistrationFormData.getLastName());
         practiceFormPage.userEmailInput.sendKeys(studentRegistrationFormData.getEmail());
@@ -23,5 +23,13 @@ public class FillEntireStudentRegistrationForm implements StudentRegistrationFor
         practiceFormPage.currentAddressInput.sendKeys(studentRegistrationFormData.getCurrentAddress());
         practiceFormPage.selectState(studentRegistrationFormData.getState());
         practiceFormPage.selectCity(studentRegistrationFormData.getCity());
+    }
+
+    @Override
+    public void fillRequiredStudentRegistrationForm(StudentRegistrationFormDto studentRegistrationFormData) {
+        practiceFormPage.firstNameInput.sendKeys(studentRegistrationFormData.getFirstName());
+        practiceFormPage.lastNameInput.sendKeys(studentRegistrationFormData.getLastName());
+        practiceFormPage.chooseRadioOption(studentRegistrationFormData.getGender());
+        practiceFormPage.userNumberInput.sendKeys(studentRegistrationFormData.getMobileNumber());
     }
 }
