@@ -4,5 +4,5 @@ import library.modules.forms.StudentRegistrationFormDto;
 import library.pages.forms.PracticeFormPage;
 
 public interface StudentRegistrationFormFillingStrategy {
-    void fillForm(StudentRegistrationFormDto studentRegistrationFormData, PracticeFormPage practiceFormPage);
+    void fillForm(StudentRegistrationFormDto studentRegistrationFormData);
 }

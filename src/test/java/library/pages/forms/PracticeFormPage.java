@@ -1,12 +1,10 @@
 package library.pages.forms;
 
+import library.modules.forms.PracticeFormPageElements;
 import library.modules.forms.StudentRegistrationFormDto;
 import library.modules.forms.strategies.FillStudentRegistrationForm;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -14,26 +12,7 @@ import java.time.Duration;
 
 import static drivers.Driver.driver;
 
-public class PracticeFormPage {
-    public PracticeFormPage(){
-        PageFactory.initElements(driver, this);
-    }
-    @FindBy(xpath = "//h1[text()='Practice Form']")
-    WebElement practiceFormPageTitle;
-    @FindBy(id = "firstName")
-    public WebElement firstNameInput;
-    @FindBy(id = "lastName")
-    public WebElement lastNameInput;
-    @FindBy(id = "userEmail")
-    public WebElement userEmailInput;
-    @FindBy(id = "userNumber")
-    public WebElement userNumberInput;
-    @FindBy(id = "dateOfBirthInput")
-    public WebElement dateOfBirthInput;
-    @FindBy(id = "uploadPicture")
-    public WebElement uploadPictureButton;
-    @FindBy(id = "currentAddress")
-    public WebElement currentAddressInput;
+public class PracticeFormPage extends PracticeFormPageElements {
 
     public boolean waitForPracticeFormPageContent(){
         try {
@@ -48,7 +27,7 @@ public class PracticeFormPage {
     }
 
     public void fillStudentRegistrationForm(StudentRegistrationFormDto studentRegistrationFormData, FillStudentRegistrationForm.StrategyType strategyType) {
-        new FillStudentRegistrationForm(strategyType).fillForm(studentRegistrationFormData, this);
+        new FillStudentRegistrationForm(strategyType, this).fillForm(studentRegistrationFormData);
     }
 
     public void chooseRadioOption(String optionValue){
@@ -69,8 +48,8 @@ public class PracticeFormPage {
         }
     }
 
-    public void uploadPicture(String filePath){
-        uploadPictureButton.sendKeys(filePath);
+    public void uploadPicture(){
+        uploadPictureButton.sendKeys("");
     }
 
     public void selectState(String state){

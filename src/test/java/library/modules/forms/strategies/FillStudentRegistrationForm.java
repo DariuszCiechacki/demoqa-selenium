@@ -1,12 +1,17 @@
 package library.modules.forms.strategies;
 
+import library.modules.forms.PracticeFormPageElements;
 import library.modules.forms.StudentRegistrationFormDto;
 import library.pages.forms.PracticeFormPage;
 
 public class FillStudentRegistrationForm implements StudentRegistrationFormFillingStrategy{
+
     private final StrategyType strategyType;
-    public FillStudentRegistrationForm(StrategyType strategyType) {
+    private final PracticeFormPage practiceFormPage;
+
+    public FillStudentRegistrationForm(StrategyType strategyType, PracticeFormPage practiceFormPage) {
         this.strategyType = strategyType;
+        this.practiceFormPage = practiceFormPage;
     }
 
     public enum StrategyType {
@@ -15,7 +20,7 @@ public class FillStudentRegistrationForm implements StudentRegistrationFormFilli
     }
 
     @Override
-    public void fillForm(StudentRegistrationFormDto studentRegistrationFormData, PracticeFormPage practiceFormPage) {
+    public void fillForm(StudentRegistrationFormDto studentRegistrationFormData) {
         switch (strategyType) {
             case FULL_FORM:
                 fillEntireStudentRegistrationForm(studentRegistrationFormData, practiceFormPage);
@@ -35,6 +40,7 @@ public class FillStudentRegistrationForm implements StudentRegistrationFormFilli
         practiceFormPage.dateOfBirthInput.sendKeys(studentRegistrationFormData.getDateOfBirth());
         practiceFormPage.selectSubjects(studentRegistrationFormData.getSubjects());
         practiceFormPage.checkHobbies(studentRegistrationFormData.getHobbies());
+        practiceFormPage.uploadPicture();
         practiceFormPage.currentAddressInput.sendKeys(studentRegistrationFormData.getCurrentAddress());
         practiceFormPage.selectState(studentRegistrationFormData.getState());
         practiceFormPage.selectCity(studentRegistrationFormData.getCity());
