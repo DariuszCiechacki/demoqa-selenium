@@ -3,7 +3,7 @@ package library.modules.common;
 import library.pages.elements.ButtonsPage;
 import library.pages.elements.TextBoxPage;
 import library.pages.elements.webtables.WebTablesPage;
-import library.pages.forms.PracticeFormPage;
+import library.pages.forms.practiceform.PracticeFormPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 

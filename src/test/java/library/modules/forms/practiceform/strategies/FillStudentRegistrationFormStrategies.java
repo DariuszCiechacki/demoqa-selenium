@@ -1,7 +1,7 @@
 package library.modules.forms.practiceform.strategies;
 
 import library.modules.forms.practiceform.StudentRegistrationFormDto;
-import library.pages.forms.PracticeFormPage;
+import library.pages.forms.practiceform.PracticeFormPage;
 
 public class FillStudentRegistrationFormStrategies implements FillFormStrategy {
 

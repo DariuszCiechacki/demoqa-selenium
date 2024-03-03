@@ -1,4 +1,4 @@
-package library.pages.forms;
+package library.pages.forms.practiceform;
 
 import library.modules.forms.practiceform.PracticeFormPageElements;
 import library.modules.forms.practiceform.StudentRegistrationFormDto;
@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 
 import static drivers.Driver.driver;
 
@@ -28,6 +30,13 @@ public class PracticeFormPage extends PracticeFormPageElements {
 
     public void fillStudentRegistrationForm(StudentRegistrationFormDto studentRegistrationFormData, FillStudentRegistrationFormStrategies.StrategyType strategyType) {
         new FillStudentRegistrationFormStrategies(strategyType, this).fillForm(studentRegistrationFormData);
+    }
+
+    public Map<String, String> getStudentRegistrationFormData(){
+        Map<String, String> studentRegistrationFormData = new HashMap<>();
+
+
+        return studentRegistrationFormData;
     }
 
     public void chooseRadioOption(String optionValue){
@@ -58,5 +67,11 @@ public class PracticeFormPage extends PracticeFormPageElements {
 
     public void selectCity(String city){
 
+    }
+
+    public SubmittedFormModal submitForm(){
+        submitFormButton.click();
+
+        return new SubmittedFormModal();
     }
 }

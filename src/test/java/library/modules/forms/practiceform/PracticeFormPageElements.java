@@ -26,4 +26,6 @@ public abstract class PracticeFormPageElements {
     public WebElement uploadPictureButton;
     @FindBy(id = "currentAddress")
     public WebElement currentAddressInput;
+    @FindBy(id = "submit")
+    public WebElement submitFormButton;
 }
