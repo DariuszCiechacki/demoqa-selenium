@@ -12,6 +12,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 
 import static drivers.Driver.driver;
 
@@ -36,6 +38,24 @@ public class PracticeFormPage extends PracticeFormPageElements {
     public void fillEntirePracticeForm(StudentRegistrationFormDto studentRegistrationFormData){
         new FillEntireStudentRegistrationFormStrategy()
                 .fillStudentRegistrationForm(studentRegistrationFormData);
+    }
+
+    public Map<String, String> getStudentRegistrationFormData(){
+        Map<String, String> studentRegistrationFormData = new HashMap<>();
+
+        studentRegistrationFormData.put("firstName", firstNameInput.getAttribute("value"));
+        studentRegistrationFormData.put("lastName", lastNameInput.getAttribute("value"));
+        studentRegistrationFormData.put("email", userEmailInput.getAttribute("value"));
+        //studentRegistrationFormData.put("gender", firstNameInput.getAttribute("value"));
+        studentRegistrationFormData.put("mobileNumber", userMobileNumberInput.getAttribute("value"));
+        studentRegistrationFormData.put("dateOfBirth", dateOfBirthInput.getAttribute("value"));
+        //studentRegistrationFormData.put("subjects", firstNameInput.getAttribute("value"));
+        //studentRegistrationFormData.put("hobbies", firstNameInput.getAttribute("value"));
+        studentRegistrationFormData.put("currentAddress", currentAddressInput.getAttribute("value"));
+        //studentRegistrationFormData.put("state", firstNameInput.getAttribute("value"));
+        //studentRegistrationFormData.put("city", firstNameInput.getAttribute("value"));
+
+        return studentRegistrationFormData;
     }
 
     public void chooseRadioOption(String optionValue){
