@@ -1,6 +1,5 @@
 package library.modules.elements.webtables;
 
-import library.modules.elements.textbox.TextBoxFormDto;
 import library.pages.elements.webtables.RegistrationFormModal;
 
 public class FillEntireRegistrationFormStrategy implements FillRegistrationFormStrategy {

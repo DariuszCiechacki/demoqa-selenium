@@ -2,7 +2,6 @@ package tests.elements.webtables;
 
 import library.TestCase;
 import library.modules.common.SidebarMenu;
-import library.modules.elements.textbox.TextBoxFormFactory;
 import library.modules.elements.webtables.RegistrationFormFactory;
 import library.pages.HomePage;
 import library.pages.elements.webtables.RegistrationFormModal;

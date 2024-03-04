@@ -1,6 +1,5 @@
 package library.pages.elements.webtables;
 
-import library.modules.elements.textbox.TextBoxFormDto;
 import library.modules.elements.webtables.FillEntireRegistrationFormStrategy;
 import library.modules.elements.webtables.RegistrationFormDto;
 import org.openqa.selenium.By;
