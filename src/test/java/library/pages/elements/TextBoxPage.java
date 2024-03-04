@@ -1,6 +1,6 @@
 package library.pages.elements;
 
-import library.modules.common.forms.FormsDto;
+import library.modules.elements.textbox.TextBoxFormDto;
 import library.modules.elements.textbox.FillEntireTextBoxFormStrategy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
@@ -55,7 +55,7 @@ public class TextBoxPage {
         return true;
     }
 
-    public void fillEntireTextBoxForm(FormsDto formsData){
+    public void fillEntireTextBoxForm(TextBoxFormDto formsData){
         new FillEntireTextBoxFormStrategy().fillTextBoxForm(formsData);
     }
 

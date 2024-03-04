@@ -1,17 +1,17 @@
 package library.modules.elements.webtables;
 
-import library.modules.common.forms.FormsDto;
+import library.modules.elements.textbox.TextBoxFormDto;
 import library.pages.elements.webtables.RegistrationFormModal;
 
 public class FillEntireRegistrationFormStrategy implements FillRegistrationFormStrategy {
     @Override
-    public void fillRegistrationFormStrategy(FormsDto formsDto) {
+    public void fillRegistrationFormStrategy(RegistrationFormDto registrationFormData) {
         RegistrationFormModal registrationFormModal = new RegistrationFormModal();
-        registrationFormModal.firstNameInput.sendKeys(formsDto.getFirstName());
-        registrationFormModal.lastNameInput.sendKeys(formsDto.getLastName());
-        registrationFormModal.userEmailInput.sendKeys(formsDto.getEmail());
-        registrationFormModal.ageInput.sendKeys(formsDto.getAge());
-        registrationFormModal.salaryInput.sendKeys(formsDto.getSalary());
-        registrationFormModal.departmentInput.sendKeys(formsDto.getDepartment());
+        registrationFormModal.firstNameInput.sendKeys(registrationFormData.getFirstName());
+        registrationFormModal.lastNameInput.sendKeys(registrationFormData.getLastName());
+        registrationFormModal.userEmailInput.sendKeys(registrationFormData.getEmail());
+        registrationFormModal.ageInput.sendKeys(registrationFormData.getAge());
+        registrationFormModal.salaryInput.sendKeys(registrationFormData.getSalary());
+        registrationFormModal.departmentInput.sendKeys(registrationFormData.getDepartment());
     }
 }

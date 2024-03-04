@@ -1,24 +1,12 @@
-package library.modules.common.forms;
+package library.modules.elements.webtables;
 
 import com.github.javafaker.Faker;
 
 import static library.modules.common.DefaultData.defaultEmail;
 
-public class FormsFactory {
-    public static FormsDto createTextBoxFormData(){
-        FormsDto textBoxFormData = new FormsDto();
-        Faker faker = new Faker();
-
-        textBoxFormData.setFullName(faker.name().fullName());
-        textBoxFormData.setEmail(defaultEmail);
-        textBoxFormData.setCurrentAddress(faker.address().fullAddress());
-        textBoxFormData.setPermanentAddress(faker.address().fullAddress());
-
-        return textBoxFormData;
-    }
-
-    public static FormsDto createRegistrationFormData(){
-        FormsDto registrationFormData = new FormsDto();
+public class RegistrationFormFactory {
+    public static RegistrationFormDto createRegistrationFormData(){
+        RegistrationFormDto registrationFormData = new RegistrationFormDto();
         Faker faker = new Faker();
 
         registrationFormData.setFirstName(faker.name().firstName());

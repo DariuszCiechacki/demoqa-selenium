@@ -2,7 +2,8 @@ package tests.elements.webtables;
 
 import library.TestCase;
 import library.modules.common.SidebarMenu;
-import library.modules.common.forms.FormsFactory;
+import library.modules.elements.textbox.TextBoxFormFactory;
+import library.modules.elements.webtables.RegistrationFormFactory;
 import library.pages.HomePage;
 import library.pages.elements.webtables.RegistrationFormModal;
 import library.pages.elements.webtables.WebTablesPage;
@@ -38,7 +39,7 @@ public class EditExistingRecordTest extends TestCase {
 
         registrationFormModal
                 .clearRegistrationFormData()
-                .fillEntireRegistrationFormStrategy(FormsFactory.createRegistrationFormData());
+                .fillEntireRegistrationFormStrategy(RegistrationFormFactory.createRegistrationFormData());
 
         Map<String, String> registrationFormData = registrationFormModal.getRegistrationFormData();
 

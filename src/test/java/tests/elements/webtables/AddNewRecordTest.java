@@ -2,7 +2,8 @@ package tests.elements.webtables;
 
 import library.TestCase;
 import library.modules.common.SidebarMenu;
-import library.modules.common.forms.FormsFactory;
+import library.modules.elements.textbox.TextBoxFormFactory;
+import library.modules.elements.webtables.RegistrationFormFactory;
 import library.pages.HomePage;
 import library.pages.elements.webtables.RegistrationFormModal;
 import library.pages.elements.webtables.WebTablesPage;
@@ -36,7 +37,7 @@ public class AddNewRecordTest extends TestCase {
         Assert.assertTrue(registrationFormModalVisible,
                 "Registration form modal is not visible");
 
-        registrationFormModal.fillEntireRegistrationFormStrategy(FormsFactory.createRegistrationFormData());
+        registrationFormModal.fillEntireRegistrationFormStrategy(RegistrationFormFactory.createRegistrationFormData());
 
         Map<String, String> registrationFormData = registrationFormModal.getRegistrationFormData();
 

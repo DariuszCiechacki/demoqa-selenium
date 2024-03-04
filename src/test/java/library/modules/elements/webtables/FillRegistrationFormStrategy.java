@@ -1,7 +1,7 @@
 package library.modules.elements.webtables;
 
-import library.modules.common.forms.FormsDto;
+import library.modules.elements.textbox.TextBoxFormDto;
 
 public interface FillRegistrationFormStrategy {
-    void fillRegistrationFormStrategy(FormsDto formsDto);
+    void fillRegistrationFormStrategy(RegistrationFormDto registrationFormData);
 }

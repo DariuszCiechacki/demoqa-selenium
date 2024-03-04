@@ -2,8 +2,7 @@ package tests.elements;
 
 import library.TestCase;
 import library.modules.common.SidebarMenu;
-import library.modules.common.forms.FormsFactory;
-import library.modules.elements.textbox.FillEntireTextBoxFormStrategy;
+import library.modules.elements.textbox.TextBoxFormFactory;
 import library.pages.HomePage;
 import library.pages.elements.TextBoxPage;
 import org.testng.Assert;
@@ -25,7 +24,7 @@ public class FillTextBoxFormTest extends TestCase {
         boolean textBoxPageVisible = textBoxPage.waitForTextBoxPageContent();
         Assert.assertTrue(textBoxPageVisible, "Text box page is not visible");
 
-        textBoxPage.fillEntireTextBoxForm(FormsFactory.createTextBoxFormData());
+        textBoxPage.fillEntireTextBoxForm(TextBoxFormFactory.createTextBoxFormData());
         Map<String, String> formData = textBoxPage.getFilledFormData();
 
         textBoxPage.submitForm();

@@ -1,24 +1,12 @@
-package library.modules.common.forms;
+package library.modules.elements.webtables;
 
-public class FormsDto {
-    private String fullName;
+public class RegistrationFormDto {
     private String email;
-    private String currentAddress;
-    private String permanentAddress;
-
     private String firstName;
     private String lastName;
     private String age;
     private String salary;
     private String department;
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
 
     public String getEmail() {
         return email;
@@ -26,22 +14,6 @@ public class FormsDto {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getCurrentAddress() {
-        return currentAddress;
-    }
-
-    public void setCurrentAddress(String currentAddress) {
-        this.currentAddress = currentAddress;
-    }
-
-    public String getPermanentAddress() {
-        return permanentAddress;
-    }
-
-    public void setPermanentAddress(String permanentAddress) {
-        this.permanentAddress = permanentAddress;
     }
 
     public String getFirstName() {
