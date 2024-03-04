@@ -67,14 +67,19 @@ public class PracticeFormPage extends PracticeFormPageElements {
 
     public void selectSubjects(String... subjects){
         for (String subject : subjects){
-            driver.findElement(By.xpath("//input[@id='subjectsInput']"))
-                    .click();
+            subjectsSelect.sendKeys(subject);
+
+            new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions
+                    .textToBePresentInElement(subjectsSelect.findElement(By.xpath(
+                            "div[contains(@class,'-menu')]")), subject));
+
+            subjectsSelect.sendKeys(Keys.RETURN);
         }
     }
 
     public void checkHobbies(String... hobbies){
         for (String hobby : hobbies){
-            driver.findElement(By.xpath(""))
+            driver.findElement(By.xpath("//label[contains(@for,'hobbies') and text()='"+hobby+"']"))
                     .click();
         }
     }
