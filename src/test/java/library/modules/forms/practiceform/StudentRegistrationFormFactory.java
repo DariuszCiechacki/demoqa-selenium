@@ -1,4 +1,4 @@
-package library.modules.forms;
+package library.modules.forms.practiceform;
 
 import com.github.javafaker.Faker;
 

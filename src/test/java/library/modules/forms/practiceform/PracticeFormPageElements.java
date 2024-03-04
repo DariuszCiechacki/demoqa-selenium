@@ -1,4 +1,4 @@
-package library.modules.forms;
+package library.modules.forms.practiceform;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
