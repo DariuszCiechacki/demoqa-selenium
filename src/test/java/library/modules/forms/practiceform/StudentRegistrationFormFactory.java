@@ -6,7 +6,7 @@ import static library.modules.common.DefaultData.defaultEmail;
 
 public class StudentRegistrationFormFactory {
     public static StudentRegistrationFormDto createEntireStudentRegistrationFormData(String gender, String dateOfBirth,
-                                                                                     String subjects, String hobbies,
+                                                                                     String[] subjects, String[] hobbies,
                                                                                      String state, String city){
         StudentRegistrationFormDto studentRegistrationFormData = new StudentRegistrationFormDto();
         Faker faker = new Faker();

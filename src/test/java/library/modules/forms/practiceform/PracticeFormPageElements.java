@@ -26,6 +26,10 @@ public class PracticeFormPageElements {
     public WebElement uploadPictureButton;
     @FindBy(id = "currentAddress")
     public WebElement currentAddressInput;
+    @FindBy(xpath = "//div[@id='state']")
+    public WebElement stateSelect;
+    @FindBy(xpath = "//div[@id='city']")
+    public WebElement citySelect;
     @FindBy(id = "submit")
     public WebElement submitFormButton;
 }

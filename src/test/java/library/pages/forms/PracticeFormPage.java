@@ -1,12 +1,12 @@
 package library.pages.forms;
 
-import library.modules.elements.webtables.FillEntireRegistrationFormStrategy;
 import library.modules.forms.practiceform.FillEntireStudentRegistrationFormStrategy;
 import library.modules.forms.practiceform.FillRequiredStudentRegistrationFormStrategy;
 import library.modules.forms.practiceform.PracticeFormPageElements;
 import library.modules.forms.practiceform.StudentRegistrationFormDto;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -52,8 +52,10 @@ public class PracticeFormPage extends PracticeFormPageElements {
         //studentRegistrationFormData.put("subjects", firstNameInput.getAttribute("value"));
         //studentRegistrationFormData.put("hobbies", firstNameInput.getAttribute("value"));
         studentRegistrationFormData.put("currentAddress", currentAddressInput.getAttribute("value"));
-        //studentRegistrationFormData.put("state", firstNameInput.getAttribute("value"));
-        //studentRegistrationFormData.put("city", firstNameInput.getAttribute("value"));
+        studentRegistrationFormData.put("state", stateSelect.findElement(By.xpath("//div[contains(@class,'singleValue')]"))
+                .getText());
+        studentRegistrationFormData.put("city", citySelect.findElement(By.xpath("//div[contains(@class,'singleValue')]"))
+                .getText());
 
         return studentRegistrationFormData;
     }
@@ -65,7 +67,7 @@ public class PracticeFormPage extends PracticeFormPageElements {
 
     public void selectSubjects(String... subjects){
         for (String subject : subjects){
-            driver.findElement(By.xpath(""))
+            driver.findElement(By.xpath("//input[@id='subjectsInput']"))
                     .click();
         }
     }
@@ -81,12 +83,19 @@ public class PracticeFormPage extends PracticeFormPageElements {
         uploadPictureButton.sendKeys("");
     }
 
-    public void selectState(String state){
+    public void selectStateAndCity(String state, String city){
+        stateSelect.findElement(By.xpath("//input"))
+                .sendKeys(state);
 
-    }
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions
+                .textToBePresentInElement(stateSelect.findElement(By.xpath(
+                        "div[contains(@class,'-menu')]")), state));
 
-    public void selectCity(String city){
+        stateSelect.findElement(By.xpath("//input")).sendKeys(Keys.RETURN);
 
+        if(!state.isEmpty()){
+            selectCity(city);
+        }
     }
 
     public SubmittedFormModal submitForm(){
@@ -95,5 +104,18 @@ public class PracticeFormPage extends PracticeFormPageElements {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", submitFormButton);
         submitFormButton.click();
         return new SubmittedFormModal();
+    }
+
+    private void selectCity(String city){
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(citySelect));
+
+        citySelect.findElement(By.xpath("//input"))
+                .sendKeys(city);
+
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions
+                .textToBePresentInElement(citySelect.findElement(By.xpath(
+                        "div[contains(@class,'-menu')]")), city));
+
+        citySelect.findElement(By.xpath("//input")).sendKeys(Keys.RETURN);
     }
 }

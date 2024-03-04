@@ -16,7 +16,6 @@ public class FillEntireStudentRegistrationFormStrategy implements FillStudentReg
         practiceFormPage.checkHobbies(studentRegistrationFormData.getHobbies());
         practiceFormPage.uploadPicture();
         practiceFormPage.currentAddressInput.sendKeys(studentRegistrationFormData.getCurrentAddress());
-        practiceFormPage.selectState(studentRegistrationFormData.getState());
-        practiceFormPage.selectCity(studentRegistrationFormData.getCity());
+        practiceFormPage.selectStateAndCity(studentRegistrationFormData.getState(), studentRegistrationFormData.getCity());
     }
 }
