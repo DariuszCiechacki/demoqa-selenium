@@ -2,18 +2,15 @@ package tests.elements.webtables.sorting.firstname;
 
 import library.TestCase;
 import library.modules.common.SidebarMenu;
-import library.modules.webtables.ColumnName;
-import library.modules.webtables.SortingType;
+import library.modules.elements.webtables.ColumnName;
+import library.modules.elements.webtables.SortingType;
 import library.pages.HomePage;
 import library.pages.elements.webtables.WebTablesPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class SortByFirstNameAscTest extends TestCase {
 

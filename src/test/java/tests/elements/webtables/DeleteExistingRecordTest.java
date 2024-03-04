@@ -2,16 +2,10 @@ package tests.elements.webtables;
 
 import library.TestCase;
 import library.modules.common.SidebarMenu;
-import library.modules.common.forms.FormsFactory;
-import library.modules.strategies.RegistrationFormFillingStrategy;
 import library.pages.HomePage;
-import library.pages.elements.webtables.RegistrationFormModal;
 import library.pages.elements.webtables.WebTablesPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.util.Map;
-import java.util.function.Predicate;
 
 public class DeleteExistingRecordTest extends TestCase {
     protected int initialTableSize;
