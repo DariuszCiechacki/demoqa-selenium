@@ -4,10 +4,7 @@ import library.modules.forms.practiceform.FillEntireStudentRegistrationFormStrat
 import library.modules.forms.practiceform.FillRequiredStudentRegistrationFormStrategy;
 import library.modules.forms.practiceform.PracticeFormPageElements;
 import library.modules.forms.practiceform.StudentRegistrationFormDto;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -79,8 +76,9 @@ public class PracticeFormPage extends PracticeFormPageElements {
 
     public void checkHobbies(String... hobbies){
         for (String hobby : hobbies){
-            driver.findElement(By.xpath("//label[contains(@for,'hobbies') and text()='"+hobby+"']"))
-                    .click();
+            WebElement hobbyCheckbox = driver.findElement(By.xpath("//label[contains(@for,'hobbies') and text()='"+hobby+"']"));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", hobbyCheckbox);
+            hobbyCheckbox.click();
         }
     }
 
@@ -104,8 +102,6 @@ public class PracticeFormPage extends PracticeFormPageElements {
     }
 
     public SubmittedFormModal submitForm(){
-        //new Actions(driver).moveToElement(submitFormButton).click().perform();
-
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", submitFormButton);
         submitFormButton.click();
         return new SubmittedFormModal();

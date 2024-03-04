@@ -1,6 +1,7 @@
 package library.pages;
 
 import library.modules.common.SidebarMenu;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
@@ -60,6 +61,7 @@ public class HomePage {
     }
 
     public SidebarMenu navigateToFormsCategory(){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", formsCategory);
         formsCategory.click();
 
         return new SidebarMenu();
