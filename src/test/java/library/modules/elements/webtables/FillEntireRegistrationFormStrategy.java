@@ -1,17 +1,12 @@
-package library.modules.strategies;
+package library.modules.elements.webtables;
 
 import library.modules.common.forms.FormsDto;
 import library.pages.elements.webtables.RegistrationFormModal;
 
-public class RegistrationFormFillingStrategy implements FormFillingStrategy{
-    private final RegistrationFormModal registrationFormModal;
-
-    public RegistrationFormFillingStrategy(RegistrationFormModal registrationFormModal) {
-        this.registrationFormModal = registrationFormModal;
-    }
-
+public class FillEntireRegistrationFormStrategy implements FillRegistrationFormStrategy {
     @Override
-    public void fillForm(FormsDto formsDto) {
+    public void fillRegistrationFormStrategy(FormsDto formsDto) {
+        RegistrationFormModal registrationFormModal = new RegistrationFormModal();
         registrationFormModal.firstNameInput.sendKeys(formsDto.getFirstName());
         registrationFormModal.lastNameInput.sendKeys(formsDto.getLastName());
         registrationFormModal.userEmailInput.sendKeys(formsDto.getEmail());

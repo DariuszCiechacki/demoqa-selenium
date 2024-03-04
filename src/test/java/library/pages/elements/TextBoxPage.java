@@ -1,7 +1,7 @@
 package library.pages.elements;
 
 import library.modules.common.forms.FormsDto;
-import library.modules.strategies.FormFillingStrategy;
+import library.modules.elements.textbox.FillEntireTextBoxFormStrategy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
@@ -55,10 +55,8 @@ public class TextBoxPage {
         return true;
     }
 
-    public TextBoxPage fillFormWithStrategy(FormFillingStrategy strategy, FormsDto formData) {
-        strategy.fillForm(formData);
-
-        return this;
+    public void fillEntireTextBoxForm(FormsDto formsData){
+        new FillEntireTextBoxFormStrategy().fillTextBoxForm(formsData);
     }
 
     public Map<String, String> getFilledFormData(){

@@ -1,7 +1,7 @@
 package library.pages.elements.webtables;
 
 import library.modules.common.forms.FormsDto;
-import library.modules.strategies.FormFillingStrategy;
+import library.modules.elements.webtables.FillEntireRegistrationFormStrategy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
@@ -61,9 +61,8 @@ public class RegistrationFormModal {
         return this;
     }
 
-
-    public RegistrationFormModal fillRegistrationForm(FormFillingStrategy strategy, FormsDto registrationFormData){
-        strategy.fillForm(registrationFormData);
+    public RegistrationFormModal fillEntireRegistrationFormStrategy(FormsDto registrationFormData){
+        new FillEntireRegistrationFormStrategy().fillRegistrationFormStrategy(registrationFormData);
 
         return this;
     }

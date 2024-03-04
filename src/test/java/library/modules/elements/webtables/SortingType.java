@@ -1,4 +1,4 @@
-package library.modules.webtables;
+package library.modules.elements.webtables;
 
 public enum SortingType {
     ASC{

@@ -1,17 +1,12 @@
-package library.modules.strategies;
+package library.modules.elements.textbox;
 
 import library.modules.common.forms.FormsDto;
 import library.pages.elements.TextBoxPage;
 
-public class TextBoxFormFillingStrategy implements FormFillingStrategy{
-    private final TextBoxPage textBoxPage;
-
-    public TextBoxFormFillingStrategy(TextBoxPage textBoxPage) {
-        this.textBoxPage = textBoxPage;
-    }
-
+public class FillEntireTextBoxFormStrategy implements FillTextBoxFormStrategy{
     @Override
-    public void fillForm(FormsDto formsDto) {
+    public void fillTextBoxForm(FormsDto formsDto) {
+        TextBoxPage textBoxPage = new TextBoxPage();
         textBoxPage.userName.sendKeys(formsDto.getFullName());
         textBoxPage.userEmail.sendKeys(formsDto.getEmail());
         textBoxPage.currentAddress.sendKeys(formsDto.getCurrentAddress());
