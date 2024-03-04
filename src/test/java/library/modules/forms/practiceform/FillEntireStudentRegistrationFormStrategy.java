@@ -4,7 +4,7 @@ import library.pages.forms.PracticeFormPage;
 
 public class FillEntireStudentRegistrationFormStrategy implements FillStudentRegistrationFormStrategy{
     @Override
-    public void FillStudentRegistrationForm(StudentRegistrationFormDto studentRegistrationFormData) {
+    public void fillStudentRegistrationForm(StudentRegistrationFormDto studentRegistrationFormData) {
         PracticeFormPage practiceFormPage = new PracticeFormPage();
         practiceFormPage.firstNameInput.sendKeys(studentRegistrationFormData.getFirstName());
         practiceFormPage.lastNameInput.sendKeys(studentRegistrationFormData.getLastName());
