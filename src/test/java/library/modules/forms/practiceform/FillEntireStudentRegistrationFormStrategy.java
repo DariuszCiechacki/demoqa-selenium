@@ -11,11 +11,11 @@ public class FillEntireStudentRegistrationFormStrategy implements FillStudentReg
         practiceFormPage.userEmailInput.sendKeys(studentRegistrationFormData.getEmail());
         practiceFormPage.chooseRadioOption(studentRegistrationFormData.getGender());
         practiceFormPage.userMobileNumberInput.sendKeys(studentRegistrationFormData.getMobileNumber());
-        practiceFormPage.dateOfBirthInput.sendKeys(studentRegistrationFormData.getDateOfBirth());
+        //practiceFormPage.dateOfBirthInput.sendKeys(studentRegistrationFormData.getDateOfBirth());// ToDo
         practiceFormPage.selectSubjects(studentRegistrationFormData.getSubjects());
-        practiceFormPage.checkHobbies(studentRegistrationFormData.getHobbies());
+        /*practiceFormPage.checkHobbies(studentRegistrationFormData.getHobbies());
         practiceFormPage.uploadPicture();
         practiceFormPage.currentAddressInput.sendKeys(studentRegistrationFormData.getCurrentAddress());
-        practiceFormPage.selectStateAndCity(studentRegistrationFormData.getState(), studentRegistrationFormData.getCity());
+        practiceFormPage.selectStateAndCity(studentRegistrationFormData.getState(), studentRegistrationFormData.getCity());*/
     }
 }

@@ -22,7 +22,7 @@ public class PracticeFormPageElements {
     public WebElement userMobileNumberInput;
     @FindBy(id = "dateOfBirthInput")
     public WebElement dateOfBirthInput;
-    @FindBy(id = "subjectsInput")
+    @FindBy(id = "subjectsContainer")
     public WebElement subjectsSelect;
 
     @FindBy(id = "uploadPicture")

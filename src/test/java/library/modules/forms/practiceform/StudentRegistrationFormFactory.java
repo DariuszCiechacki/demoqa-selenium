@@ -19,7 +19,7 @@ public class StudentRegistrationFormFactory {
         studentRegistrationFormData.setLastName(faker.name().lastName());
         studentRegistrationFormData.setEmail(defaultEmail);
         studentRegistrationFormData.setGender(gender);
-        studentRegistrationFormData.setMobileNumber(faker.phoneNumber().phoneNumber());
+        studentRegistrationFormData.setMobileNumber(faker.numerify("##########"));
         studentRegistrationFormData.setDateOfBirth(dateOfBirth);
         studentRegistrationFormData.setSubjects(subjects);
         studentRegistrationFormData.setHobbies(hobbies);

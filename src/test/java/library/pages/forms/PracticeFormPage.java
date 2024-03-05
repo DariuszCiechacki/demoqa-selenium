@@ -1,11 +1,14 @@
 package library.pages.forms;
 
+import library.modules.common.adapters.SelectsHandler;
+import library.modules.common.adapters.WebDriverActions;
 import library.modules.forms.practiceform.FillEntireStudentRegistrationFormStrategy;
 import library.modules.forms.practiceform.FillRequiredStudentRegistrationFormStrategy;
 import library.modules.forms.practiceform.PracticeFormPageElements;
 import library.modules.forms.practiceform.StudentRegistrationFormDto;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -58,19 +61,13 @@ public class PracticeFormPage extends PracticeFormPageElements {
     }
 
     public void chooseRadioOption(String optionValue){
-        driver.findElement(By.xpath("//input[@name='gender' and @value='"+optionValue+"']//following-sibling::label"))
-                .click();
+        WebDriverActions.scrollToElementAndClick(driver.findElement(By.xpath(
+                "//input[@name='gender' and @value='"+optionValue+"']//following-sibling::label")));
     }
 
     public void selectSubjects(String... subjects){
         for (String subject : subjects){
-            subjectsSelect.sendKeys(subject);
-
-            new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions
-                    .textToBePresentInElement(subjectsSelect.findElement(By.xpath(
-                            "div[contains(@class,'-menu')]")), subject));
-
-            subjectsSelect.sendKeys(Keys.RETURN);
+            SelectsHandler.fillSelectAutocompleteMulti(subjectsSelect, subject);
         }
     }
 
@@ -86,37 +83,21 @@ public class PracticeFormPage extends PracticeFormPageElements {
         uploadPictureButton.sendKeys("");
     }
 
-    public void selectStateAndCity(String state, String city){
-        stateSelect.findElement(By.xpath("//input"))
-                .sendKeys(state);
+    public void selectStateAndCity(String stateName, String cityName){
+        SelectsHandler.fillSelectAutocompleteSingle(stateSelect, stateName);
 
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions
-                .textToBePresentInElement(stateSelect.findElement(By.xpath(
-                        "div[contains(@class,'-menu')]")), state));
-
-        stateSelect.findElement(By.xpath("//input")).sendKeys(Keys.RETURN);
-
-        if(!state.isEmpty()){
-            selectCity(city);
+        if(!stateName.isEmpty()){
+            selectCity(cityName);
         }
     }
 
     public SubmittedFormModal submitForm(){
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", submitFormButton);
-        submitFormButton.click();
+        WebDriverActions.scrollToElementAndClick(submitFormButton);
+
         return new SubmittedFormModal();
     }
 
-    private void selectCity(String city){
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(citySelect));
-
-        citySelect.findElement(By.xpath("//input"))
-                .sendKeys(city);
-
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions
-                .textToBePresentInElement(citySelect.findElement(By.xpath(
-                        "div[contains(@class,'-menu')]")), city));
-
-        citySelect.findElement(By.xpath("//input")).sendKeys(Keys.RETURN);
+    private void selectCity(String cityName){
+        SelectsHandler.fillSelectAutocompleteSingle(citySelect, cityName);
     }
 }
