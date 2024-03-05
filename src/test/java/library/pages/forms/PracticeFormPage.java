@@ -1,6 +1,7 @@
 package library.pages.forms;
 
 import library.modules.common.DefaultData;
+import library.modules.common.adapters.CheckboxesHandler;
 import library.modules.common.adapters.SelectsHandler;
 import library.modules.common.adapters.WebDriverActions;
 import library.modules.forms.practiceform.FillEntireStudentRegistrationFormStrategy;
@@ -66,10 +67,7 @@ public class PracticeFormPage extends PracticeFormPageElements {
     }
 
     public void checkHobbies(String... hobbies){
-        for (String hobby : hobbies){
-            WebElement hobbyCheckbox = driver.findElement(By.xpath("//label[contains(@for,'hobbies') and text()='"+hobby+"']"));
-            WebDriverActions.scrollToElementAndClick(hobbyCheckbox);
-        }
+        CheckboxesHandler.setCheckboxes(true, hobbies);
     }
 
     public void uploadPicture(){
