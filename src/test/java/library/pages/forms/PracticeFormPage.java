@@ -46,11 +46,11 @@ public class PracticeFormPage extends PracticeFormPageElements {
         studentRegistrationFormData.put("firstName", firstNameInput.getAttribute("value"));
         studentRegistrationFormData.put("lastName", lastNameInput.getAttribute("value"));
         studentRegistrationFormData.put("email", userEmailInput.getAttribute("value"));
-        //studentRegistrationFormData.put("gender", firstNameInput.getAttribute("value"));
+        //studentRegistrationFormData.put("gender", firstNameInput.getAttribute("value")); ToDo
         studentRegistrationFormData.put("mobileNumber", userMobileNumberInput.getAttribute("value"));
         studentRegistrationFormData.put("dateOfBirth", dateOfBirthInput.getAttribute("value"));
-        //studentRegistrationFormData.put("subjects", firstNameInput.getAttribute("value"));
-        //studentRegistrationFormData.put("hobbies", firstNameInput.getAttribute("value"));
+        studentRegistrationFormData.put("subjects", SelectsHandler.getSelectMultiValues(subjectsSelect));
+        //studentRegistrationFormData.put("hobbies", firstNameInput.getAttribute("value")); ToDo
         studentRegistrationFormData.put("currentAddress", currentAddressInput.getAttribute("value"));
         studentRegistrationFormData.put("state", stateSelect.findElement(By.xpath("//div[contains(@class,'singleValue')]"))
                 .getText());

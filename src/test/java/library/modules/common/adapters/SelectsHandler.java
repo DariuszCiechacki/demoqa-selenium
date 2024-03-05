@@ -7,6 +7,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 import static drivers.Driver.driver;
 
@@ -36,4 +39,14 @@ public class SelectsHandler {
         }
     }
 
+    public static String getSelectMultiValues(WebElement selectElement){
+        List<WebElement> valuesElements = selectElement.findElements(By.xpath("//div[contains(@class,'multi-value__label')]"));
+        List<String> values = new ArrayList<>();
+
+        valuesElements.forEach(webElement -> {
+           values.add(webElement.getText());
+        });
+
+        return String.join(", ", values);
+    }
 }
