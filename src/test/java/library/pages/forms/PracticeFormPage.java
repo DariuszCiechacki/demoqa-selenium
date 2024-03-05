@@ -1,5 +1,6 @@
 package library.pages.forms;
 
+import library.modules.common.DefaultData;
 import library.modules.common.adapters.SelectsHandler;
 import library.modules.common.adapters.WebDriverActions;
 import library.modules.forms.practiceform.FillEntireStudentRegistrationFormStrategy;
@@ -8,7 +9,6 @@ import library.modules.forms.practiceform.PracticeFormPageElements;
 import library.modules.forms.practiceform.StudentRegistrationFormDto;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -73,7 +73,7 @@ public class PracticeFormPage extends PracticeFormPageElements {
     }
 
     public void uploadPicture(){
-        uploadPictureButton.sendKeys("");
+        uploadPictureButton.sendKeys(DefaultData.jpgFilePath);
     }
 
     public void selectStateAndCity(String stateName, String cityName){
