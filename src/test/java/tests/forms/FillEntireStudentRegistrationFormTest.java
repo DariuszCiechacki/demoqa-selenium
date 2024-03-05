@@ -29,14 +29,14 @@ public class FillEntireStudentRegistrationFormTest extends TestCase {
                 new String[]{"Reading", "Sports"}, "NCR", "Delhi"));
 
         Map<String, String> studentRegistrationFormData = practiceFormPage.getStudentRegistrationFormData();
-        System.out.println(studentRegistrationFormData);
-
-        /*SubmittedFormModal submittedFormModal = practiceFormPage.submitForm();
+        SubmittedFormModal submittedFormModal = practiceFormPage.submitForm();
 
         boolean submittedFormModalVisible = submittedFormModal.waitForSubmittedFormModalContent();
         Assert.assertTrue(submittedFormModalVisible, "Submitted form modal is not visible");
 
+        System.out.println(studentRegistrationFormData);
+        System.out.println(submittedFormModal.getSubmittedFormData());
         Assert.assertEquals(submittedFormModal.getSubmittedFormData(), studentRegistrationFormData,
-                "Incorrect submitted form data");*/
+                "Incorrect submitted form data");
     }
 }

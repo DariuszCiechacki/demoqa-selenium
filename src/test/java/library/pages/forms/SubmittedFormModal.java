@@ -30,7 +30,7 @@ public class SubmittedFormModal {
 
         submittedFormData.put("firstName", splitFullName()[0]);
         submittedFormData.put("lastName", splitFullName()[1]);
-        submittedFormData.put("email", driver.findElement(By.xpath("//td[text()='Student Mail']//following-sibling::td"))
+        submittedFormData.put("email", driver.findElement(By.xpath("//td[text()='Student Email']//following-sibling::td"))
                 .getText());
         submittedFormData.put("gender", driver.findElement(By.xpath("//td[text()='Gender']//following-sibling::td"))
                 .getText());
@@ -60,5 +60,9 @@ public class SubmittedFormModal {
         String stateAndCity = driver.findElement(By.xpath("//td[text()='State and City']//following-sibling::td"))
                 .getText();
         return stateAndCity.split(" ");
+    }
+
+    private String getSortedHobbies(){
+
     }
 }
