@@ -1,5 +1,6 @@
 package library.modules.forms.practiceform;
 
+import library.modules.common.adapters.SelectsHandler;
 import library.pages.forms.PracticeFormPage;
 
 public class FillEntireStudentRegistrationFormStrategy implements FillStudentRegistrationFormStrategy{
@@ -12,8 +13,8 @@ public class FillEntireStudentRegistrationFormStrategy implements FillStudentReg
         practiceFormPage.chooseRadioOption(studentRegistrationFormData.getGender());
         practiceFormPage.userMobileNumberInput.sendKeys(studentRegistrationFormData.getMobileNumber());
         //practiceFormPage.dateOfBirthInput.sendKeys(studentRegistrationFormData.getDateOfBirth());// ToDo
-        practiceFormPage.selectSubjects(studentRegistrationFormData.getSubjects());
-        //practiceFormPage.checkHobbies(studentRegistrationFormData.getHobbies());
+        SelectsHandler.fillSelectAutocompleteMulti(practiceFormPage.subjectsSelect, studentRegistrationFormData.getSubjects());
+        practiceFormPage.checkHobbies(studentRegistrationFormData.getHobbies());
         //practiceFormPage.uploadPicture();
         practiceFormPage.currentAddressInput.sendKeys(studentRegistrationFormData.getCurrentAddress());
         practiceFormPage.selectStateAndCity(studentRegistrationFormData.getState(), studentRegistrationFormData.getCity());

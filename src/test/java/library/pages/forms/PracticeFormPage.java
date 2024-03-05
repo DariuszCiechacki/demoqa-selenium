@@ -65,17 +65,10 @@ public class PracticeFormPage extends PracticeFormPageElements {
                 "//input[@name='gender' and @value='"+optionValue+"']//following-sibling::label")));
     }
 
-    public void selectSubjects(String... subjects){
-        for (String subject : subjects){
-            SelectsHandler.fillSelectAutocompleteMulti(subjectsSelect, subject);
-        }
-    }
-
     public void checkHobbies(String... hobbies){
         for (String hobby : hobbies){
             WebElement hobbyCheckbox = driver.findElement(By.xpath("//label[contains(@for,'hobbies') and text()='"+hobby+"']"));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", hobbyCheckbox);
-            hobbyCheckbox.click();
+            WebDriverActions.scrollToElementAndClick(hobbyCheckbox);
         }
     }
 
