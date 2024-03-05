@@ -25,7 +25,7 @@ public class FillEntireStudentRegistrationFormTest extends TestCase {
         Assert.assertTrue(practiceFormPageVisible, "Practice form page is not visible");
 
         practiceFormPage.fillEntirePracticeForm(StudentRegistrationFormFactory.createEntireStudentRegistrationFormData(
-                "Male", "04 Mar 2024", new String[]{"Math", "Physics"},
+                "Male", "20.9.1993", new String[]{"Math", "Physics"},
                 new String[]{"Reading", "Sports"}, "NCR", "Delhi"));
 
         /*Map<String, String> studentRegistrationFormData = practiceFormPage.getStudentRegistrationFormData();
