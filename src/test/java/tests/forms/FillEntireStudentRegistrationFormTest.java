@@ -34,8 +34,6 @@ public class FillEntireStudentRegistrationFormTest extends TestCase {
         boolean submittedFormModalVisible = submittedFormModal.waitForSubmittedFormModalContent();
         Assert.assertTrue(submittedFormModalVisible, "Submitted form modal is not visible");
 
-        System.out.println(studentRegistrationFormData);
-        System.out.println(submittedFormModal.getSubmittedFormData());
         Assert.assertEquals(submittedFormModal.getSubmittedFormData(), studentRegistrationFormData,
                 "Incorrect submitted form data");
     }

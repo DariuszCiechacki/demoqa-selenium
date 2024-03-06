@@ -16,7 +16,7 @@ public class FillEntireStudentRegistrationFormStrategy implements FillStudentReg
         DatePickerHandler.pickDate(practiceFormPage.dateOfBirthInput, studentRegistrationFormData.getDateOfBirth());
         SelectsHandler.fillSelectAutocompleteMulti(practiceFormPage.subjectsSelect, studentRegistrationFormData.getSubjects());
         practiceFormPage.checkHobbies(studentRegistrationFormData.getHobbies());
-        //practiceFormPage.uploadPicture(); ToDo
+        //practiceFormPage.uploadPicture(); ToDo fix filepath
         practiceFormPage.currentAddressInput.sendKeys(studentRegistrationFormData.getCurrentAddress());
         practiceFormPage.selectStateAndCity(studentRegistrationFormData.getState(), studentRegistrationFormData.getCity());
     }

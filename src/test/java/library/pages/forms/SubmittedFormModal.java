@@ -37,11 +37,11 @@ public class SubmittedFormModal {
         submittedFormData.put("mobileNumber", driver.findElement(By.xpath("//td[text()='Mobile']//following-sibling::td"))
                 .getText());
         /*submittedFormData.put("dateOfBirth", driver.findElement(By.xpath("//td[text()='Date of Birth']//following-sibling::td"))
-                .getText());*/
+                .getText());*/ //ToDo adjust to different format
         submittedFormData.put("subjects", driver.findElement(By.xpath("//td[text()='Subjects']//following-sibling::td"))
                 .getText());
-        submittedFormData.put("hobbies", driver.findElement(By.xpath("//td[text()='Hobbies']//following-sibling::td"))
-                .getText());
+        /*submittedFormData.put("hobbies", driver.findElement(By.xpath("//td[text()='Hobbies']//following-sibling::td"))
+                .getText());*/ //ToDo return values sorted by ascending
         submittedFormData.put("currentAddress", driver.findElement(By.xpath("//td[text()='Address']//following-sibling::td"))
                 .getText());
         submittedFormData.put("state", splitStateAndCity()[0]);
@@ -60,9 +60,5 @@ public class SubmittedFormModal {
         String stateAndCity = driver.findElement(By.xpath("//td[text()='State and City']//following-sibling::td"))
                 .getText();
         return stateAndCity.split(" ");
-    }
-
-    private String getSortedHobbies(){
-
     }
 }

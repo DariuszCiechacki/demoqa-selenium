@@ -51,7 +51,7 @@ public class PracticeFormPage extends PracticeFormPageElements {
         studentRegistrationFormData.put("mobileNumber", userMobileNumberInput.getAttribute("value"));
         //studentRegistrationFormData.put("dateOfBirth", dateOfBirthInput.getAttribute("value"));
         studentRegistrationFormData.put("subjects", SelectsHandler.getSelectMultiValues(subjectsSelect));
-        studentRegistrationFormData.put("hobbies", CheckboxesHandler.getSelectedCheckboxesLabelsList());
+        //studentRegistrationFormData.put("hobbies", CheckboxesHandler.getSelectedCheckboxesLabelsList());
         studentRegistrationFormData.put("currentAddress", currentAddressInput.getAttribute("value"));
         studentRegistrationFormData.put("state", stateSelect.findElement(By.xpath(".//div[contains(@class,'singleValue')]"))
                 .getText());
