@@ -41,7 +41,7 @@ public class PracticeFormPage extends PracticeFormPageElements {
                 .fillStudentRegistrationForm(studentRegistrationFormData);
     }
 
-    public Map<String, String> getStudentRegistrationFormData(){
+    public Map<String, String> getEntireStudentRegistrationFormData(){
         Map<String, String> studentRegistrationFormData = new HashMap<>();
 
         studentRegistrationFormData.put("firstName", firstNameInput.getAttribute("value"));
@@ -57,6 +57,17 @@ public class PracticeFormPage extends PracticeFormPageElements {
                 .getText());
         studentRegistrationFormData.put("city", citySelect.findElement(By.xpath(".//div[contains(@class,'singleValue')]"))
                 .getText());
+
+        return studentRegistrationFormData;
+    }
+
+    public Map<String, String> getRequiredStudentRegistrationFormData(){
+        Map<String, String> studentRegistrationFormData = new HashMap<>();
+
+        studentRegistrationFormData.put("firstName", firstNameInput.getAttribute("value"));
+        studentRegistrationFormData.put("lastName", lastNameInput.getAttribute("value"));
+        studentRegistrationFormData.put("gender", CheckboxesHandler.getSelectedRadiobuttonLabel());
+        studentRegistrationFormData.put("mobileNumber", userMobileNumberInput.getAttribute("value"));
 
         return studentRegistrationFormData;
     }

@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static drivers.Driver.driver;
@@ -25,7 +24,7 @@ public class SubmittedFormModal {
         return true;
     }
 
-    public Map<String, String> getSubmittedFormData(){
+    public Map<String, String> getEntireSubmittedFormData(){
         Map<String, String> submittedFormData = new HashMap<>();
 
         submittedFormData.put("firstName", splitFullName()[0]);
@@ -46,6 +45,19 @@ public class SubmittedFormModal {
                 .getText());
         submittedFormData.put("state", splitStateAndCity()[0]);
         submittedFormData.put("city", splitStateAndCity()[1]);
+
+        return submittedFormData;
+    }
+
+    public Map<String, String> getRequiredSubmittedFormData(){
+        Map<String, String> submittedFormData = new HashMap<>();
+
+        submittedFormData.put("firstName", splitFullName()[0]);
+        submittedFormData.put("lastName", splitFullName()[1]);
+        submittedFormData.put("gender", driver.findElement(By.xpath("//td[text()='Gender']//following-sibling::td"))
+                .getText());
+        submittedFormData.put("mobileNumber", driver.findElement(By.xpath("//td[text()='Mobile']//following-sibling::td"))
+                .getText());
 
         return submittedFormData;
     }

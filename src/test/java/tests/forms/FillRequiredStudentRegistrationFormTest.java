@@ -25,16 +25,16 @@ public class FillRequiredStudentRegistrationFormTest extends TestCase {
         Assert.assertTrue(practiceFormPageVisible, "Practice form page is not visible");
 
         practiceFormPage.fillRequiredPracticeForm(StudentRegistrationFormFactory
-                .createRequiredStudentRegistrationFormData(""));
+                .createRequiredStudentRegistrationFormData("Other"));
 
-        Map<String, String> studentRegistrationFormData = practiceFormPage.getStudentRegistrationFormData();
+        Map<String, String> studentRegistrationFormData = practiceFormPage.getRequiredStudentRegistrationFormData();
 
         SubmittedFormModal submittedFormModal = practiceFormPage.submitForm();
 
         boolean submittedFormModalVisible = submittedFormModal.waitForSubmittedFormModalContent();
         Assert.assertTrue(submittedFormModalVisible, "Submitted form modal is not visible");
 
-        Assert.assertEquals(submittedFormModal.getSubmittedFormData(), studentRegistrationFormData,
+        Assert.assertEquals(submittedFormModal.getRequiredSubmittedFormData(), studentRegistrationFormData,
                 "Incorrect submitted form data");
     }
 }
