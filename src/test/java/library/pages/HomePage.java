@@ -1,9 +1,7 @@
 package library.pages;
 
 import library.modules.common.SidebarMenu;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -41,8 +39,8 @@ public class HomePage {
 
     public boolean waitForHomePageContent(){
         try {
-            new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions
-                    .visibilityOf(elementsCategory));
+            new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions
+                    .elementToBeClickable(By.xpath("//a[contains(@href,'demoqa')]")));
         }
         catch (TimeoutException exception){
             return false;
@@ -55,6 +53,13 @@ public class HomePage {
 
     public SidebarMenu navigateToElementsCategory(){
         elementsCategory.click();
+
+        return new SidebarMenu();
+    }
+
+    public SidebarMenu navigateToFormsCategory(){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", formsCategory);
+        formsCategory.click();
 
         return new SidebarMenu();
     }
