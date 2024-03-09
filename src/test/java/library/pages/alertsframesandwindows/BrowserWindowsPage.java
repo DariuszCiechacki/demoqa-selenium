@@ -28,7 +28,7 @@ public class BrowserWindowsPage {
 
     public boolean waitForBrowserWindowsPageContent() {
         try {
-            new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions
+            new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions
                     .elementToBeClickable(browserWindowsPageTitle));
             return true;
         } catch (TimeoutException exception) {
