@@ -1,9 +1,9 @@
-package tests.alertsframewindows.frames;
+package tests.alertsframewindows;
 
 import library.TestCase;
 import library.modules.common.SidebarMenu;
 import library.pages.HomePage;
-import library.pages.frames.FramesPage;
+import library.pages.alertsframesandwindows.FramesPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

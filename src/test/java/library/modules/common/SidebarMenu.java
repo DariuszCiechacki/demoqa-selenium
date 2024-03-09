@@ -1,12 +1,13 @@
 package library.modules.common;
 
+import library.pages.alertsframesandwindows.NestedFramesPage;
 import library.pages.alertsframesandwindows.AlertsPage;
 import library.pages.alertsframesandwindows.ModalDialogsPage;
 import library.pages.elements.ButtonsPage;
 import library.pages.elements.TextBoxPage;
 import library.pages.elements.webtables.WebTablesPage;
 import library.pages.forms.PracticeFormPage;
-import library.pages.frames.FramesPage;
+import library.pages.alertsframesandwindows.FramesPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -88,6 +89,17 @@ public class SidebarMenu {
         categoryName.click();
 
         return new FramesPage();
+    }
+
+    public NestedFramesPage navigateToNestedFramesPage(){
+        WebElement categoryName = driver.findElement(By.xpath("//div[@class='left-pannel']//*[text()='Nested Frames']"));
+        if (!categoryName.isEnabled()){
+            expandMainCategoryIfNecessary("Alerts, Frame & Windows");
+        }
+
+        categoryName.click();
+
+        return new NestedFramesPage();
     }
 
     private void expandMainCategoryIfNecessary(String mainCategoryText){
