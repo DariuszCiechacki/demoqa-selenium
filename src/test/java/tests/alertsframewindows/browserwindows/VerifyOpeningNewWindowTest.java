@@ -9,13 +9,13 @@ import org.testng.annotations.Test;
 
 import static drivers.Driver.driver;
 
-public class VerifyOpeningNewTabTest extends TestCase {
+public class VerifyOpeningNewWindowTest extends TestCase {
     private String originalWindowHandle;
-    private String openedTabWindowHandle;
-    private final String expectedOpenedTabHeaderText = "This is a sample page";
+    private String openedWindowHandle;
+    private final String expectedOpenedWindowHeaderText = "This is a sample page";
 
     @Test
-    public void verifyOpeningNewTabTest(){
+    public void verifyOpeningNewWindowTest(){
         boolean homePageVisible = new HomePage().waitForHomePageContent();
         Assert.assertTrue(homePageVisible,"Home page is not visible");
 
@@ -26,16 +26,16 @@ public class VerifyOpeningNewTabTest extends TestCase {
         boolean browserWindowsPageVisible = browserWindowsPage.waitForBrowserWindowsPageContent();
         Assert.assertTrue(browserWindowsPageVisible, "Browser windows page is not visible");
 
-        browserWindowsPage.openNewTabButton.click();
+        browserWindowsPage.openNewWindowButton.click();
 
         originalWindowHandle = driver.getWindowHandle();
         driver.switchTo().window(browserWindowsPage.getOpenedTabWindowHandle(originalWindowHandle));
 
-        openedTabWindowHandle = driver.getWindowHandle();
-        Assert.assertNotEquals(openedTabWindowHandle, originalWindowHandle,
-                "Driver did not switch to opened tab window");
+        openedWindowHandle = driver.getWindowHandle();
+        Assert.assertNotEquals(openedWindowHandle, originalWindowHandle,
+                "Driver did not switch to opened window");
 
-        Assert.assertEquals(browserWindowsPage.getNewWindowHeaderText(), expectedOpenedTabHeaderText,
-                "Incorrect header of opened tab");
+        Assert.assertEquals(browserWindowsPage.getNewWindowHeaderText(), expectedOpenedWindowHeaderText,
+                "Incorrect header of opened window");
     }
 }

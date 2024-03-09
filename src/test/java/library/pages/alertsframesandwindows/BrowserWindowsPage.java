@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.Set;
 
 import static drivers.Driver.driver;
 
@@ -25,7 +24,7 @@ public class BrowserWindowsPage {
     @FindBy(id = "messageWindowButton")
     public WebElement openNewMessageWindowButton;
     @FindBy(id = "sampleHeading")
-    public WebElement newTabHeaderElement;
+    public WebElement newWindowHeaderElement;
 
     public boolean waitForBrowserWindowsPageContent() {
         try {
@@ -42,7 +41,7 @@ public class BrowserWindowsPage {
                 .findAny().orElse(null);
     }
 
-    public String getNewTabHeaderText(){
-        return newTabHeaderElement.getText();
+    public String getNewWindowHeaderText(){
+        return newWindowHeaderElement.getText();
     }
 }
