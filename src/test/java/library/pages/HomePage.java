@@ -1,6 +1,7 @@
 package library.pages;
 
 import library.modules.common.SidebarMenu;
+import library.modules.common.adapters.WebDriverActions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -53,6 +54,12 @@ public class HomePage {
 
     public SidebarMenu navigateToElementsCategory(){
         elementsCategory.click();
+
+        return new SidebarMenu();
+    }
+
+    public SidebarMenu navigateToAlertsFrameAndWindowsCategory(){
+        WebDriverActions.scrollToElementAndClick(alertsFramesWindowsCategory);
 
         return new SidebarMenu();
     }
