@@ -63,10 +63,6 @@ public class ModalDialogsPage {
         }
     }
 
-    public String getModalDialogTitleText(){
-        return modalDialogTitle.getText();
-    }
-
     private void waitForModalDialogToClose(){
         new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions
                 .invisibilityOf(modalDialogTitle));
