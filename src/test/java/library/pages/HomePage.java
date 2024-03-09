@@ -2,7 +2,10 @@ package library.pages;
 
 import library.modules.common.SidebarMenu;
 import library.modules.common.adapters.WebDriverActions;
-import org.openqa.selenium.*;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -32,12 +35,6 @@ public class HomePage {
     private WebElement bookStoreApplicationCategory;
 
     public boolean waitForHomePageContent(){
-        //ToDo delete sleep, add proper wait
-        try{
-            Thread.sleep(5000);
-        }
-        catch (Exception exception){}
-
         try {
             new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions
                     .visibilityOf(elementsCategory));

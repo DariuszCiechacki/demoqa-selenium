@@ -11,7 +11,7 @@ public class VerifyNestedFramesTest extends TestCase {
     private final String expectedParentFrameText = "Parent frame";
     private final String expectedChildFrameText = "Child Iframe";
 
-    @Test
+    @Test(description = "Verify switching in nested frames and verify it text")
     public void verifyNestedFramesTest(){
         boolean homePageVisible = new HomePage().waitForHomePageContent();
         Assert.assertTrue(homePageVisible,"Home page is not visible");

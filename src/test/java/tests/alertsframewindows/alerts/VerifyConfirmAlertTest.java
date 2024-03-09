@@ -12,8 +12,8 @@ public class VerifyConfirmAlertTest extends TestCase {
     private final String acceptAlertStatusText = "You selected Ok";
     private final String dismissAlertStatusText = "You selected Cancel";
 
-    @Test
-    public void verifySimpleAlertTest(){
+    @Test(description = "Verify accepting and dismissing simple alert")
+    public void verifyConfirmAlertTest(){
         boolean homePageVisible = new HomePage().waitForHomePageContent();
         Assert.assertTrue(homePageVisible,"Home page is not visible");
 

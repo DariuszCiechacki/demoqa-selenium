@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class VerifySimpleAlertTest extends TestCase {
     private final String expectedAlertMessage = "You clicked a button";
 
-    @Test
+    @Test(description = "Verify accepting simple alert")
     public void verifySimpleAlertTest(){
         boolean homePageVisible = new HomePage().waitForHomePageContent();
         Assert.assertTrue(homePageVisible,"Home page is not visible");

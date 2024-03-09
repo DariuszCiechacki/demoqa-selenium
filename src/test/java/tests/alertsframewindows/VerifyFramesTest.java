@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class VerifyFramesTest extends TestCase {
     private final String expectedFrameText = "This is a sample page";
 
-    @Test
+    @Test(description = "Verify switching to frame and its text")
     public void verifyFramesTest(){
         boolean homePageVisible = new HomePage().waitForHomePageContent();
         Assert.assertTrue(homePageVisible,"Home page is not visible");

@@ -12,7 +12,7 @@ public class VerifyPromptAlertTest extends TestCase {
     private final String promptResultPartialText = "You entered ";
     private final String promptText = "promptText";
 
-    @Test
+    @Test(description = "Verify inserting text in prompt alert")
     public void verifyPromptAlertTest(){
         boolean homePageVisible = new HomePage().waitForHomePageContent();
         Assert.assertTrue(homePageVisible,"Home page is not visible");
