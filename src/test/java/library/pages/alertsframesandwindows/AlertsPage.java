@@ -24,6 +24,8 @@ public class AlertsPage {
     public WebElement confirmAlertButton;
     @FindBy(id = "promtButton")
     public WebElement promptAlertButton;
+    @FindBy(id = "confirmResult")
+    public WebElement alertConfirmResultText;
 
     public boolean waitForAlertsPageContent(){
         try {
@@ -59,6 +61,12 @@ public class AlertsPage {
     public void acceptAlert(){
         Alert alert = driver.switchTo().alert();
         alert.accept();
+        driver.switchTo().defaultContent();
+    }
+
+    public void dismissAlert(){
+        Alert alert = driver.switchTo().alert();
+        alert.dismiss();
         driver.switchTo().defaultContent();
     }
 }
