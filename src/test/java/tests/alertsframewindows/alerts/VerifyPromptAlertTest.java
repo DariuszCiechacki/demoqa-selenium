@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class VerifyPromptAlertTest extends TestCase {
+    private final String expectedAlertMessage = "Please enter your name";
     private final String promptResultPartialText = "You entered ";
     private final String promptText = "promptText";
 
@@ -27,6 +28,10 @@ public class VerifyPromptAlertTest extends TestCase {
 
         Assert.assertTrue(alertsPage.waitForAlertToBePresent(),
                 "Alert is not present");
+
+        Assert.assertEquals(alertsPage.getAlertMessage(),
+                expectedAlertMessage,
+                "Incorrect alert message");
 
         alertsPage.fillAlertPrompt(promptText);
         alertsPage.acceptAlert();

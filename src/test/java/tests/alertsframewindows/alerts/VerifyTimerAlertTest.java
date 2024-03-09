@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class VerifyTimerAlertTest extends TestCase {
+    private final String expectedAlertMessage = "This alert appeared after 5 seconds";
 
     @Test
     public void verifyTimerAlertTest(){
@@ -25,6 +26,10 @@ public class VerifyTimerAlertTest extends TestCase {
 
         Assert.assertTrue(alertsPage.waitForAlertToBePresent(),
                 "Alert was not present within 5 seconds");
+
+        Assert.assertEquals(alertsPage.getAlertMessage(),
+                expectedAlertMessage,
+                "Incorrect alert message");
 
         alertsPage.acceptAlert();
 

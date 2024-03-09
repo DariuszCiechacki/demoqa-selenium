@@ -60,6 +60,11 @@ public class AlertsPage {
         }
     }
 
+    public String getAlertMessage(){
+        Alert alert = driver.switchTo().alert();
+        return alert.getText();
+    }
+
     public void acceptAlert(){
         Alert alert = driver.switchTo().alert();
         alert.accept();

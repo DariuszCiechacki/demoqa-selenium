@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class VerifySimpleAlertTest extends TestCase {
+    private final String expectedAlertMessage = "You clicked a button";
 
     @Test
     public void verifySimpleAlertTest(){
@@ -25,6 +26,10 @@ public class VerifySimpleAlertTest extends TestCase {
 
         Assert.assertTrue(alertsPage.waitForAlertToBePresent(),
                 "Alert is not present");
+
+        Assert.assertEquals(alertsPage.getAlertMessage(),
+                expectedAlertMessage,
+                "Incorrect alert message");
 
         alertsPage.acceptAlert();
 

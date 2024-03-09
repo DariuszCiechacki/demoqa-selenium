@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class VerifyConfirmAlertTest extends TestCase {
+    private final String expectedAlertMessage = "Do you confirm action?";
     private final String acceptAlertStatusText = "You selected Ok";
     private final String dismissAlertStatusText = "You selected Cancel";
 
@@ -28,6 +29,10 @@ public class VerifyConfirmAlertTest extends TestCase {
         Assert.assertTrue(alertsPage.waitForAlertToBePresent(),
                 "Alert is not present");
 
+        Assert.assertEquals(alertsPage.getAlertMessage(),
+                expectedAlertMessage,
+                "Incorrect alert message");
+
         alertsPage.acceptAlert();
 
         Assert.assertFalse(alertsPage.verifyAlertVisibility(),
@@ -41,6 +46,10 @@ public class VerifyConfirmAlertTest extends TestCase {
 
         Assert.assertTrue(alertsPage.waitForAlertToBePresent(),
                 "Alert is not present");
+
+        Assert.assertEquals(alertsPage.getAlertMessage(),
+                expectedAlertMessage,
+                "Incorrect alert message");
 
         alertsPage.dismissAlert();
 
