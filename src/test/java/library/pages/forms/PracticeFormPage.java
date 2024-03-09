@@ -8,7 +8,8 @@ import library.modules.forms.practiceform.FillEntireStudentRegistrationFormStrat
 import library.modules.forms.practiceform.FillRequiredStudentRegistrationFormStrategy;
 import library.modules.forms.practiceform.PracticeFormPageElements;
 import library.modules.forms.practiceform.StudentRegistrationFormDto;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 

@@ -4,7 +4,6 @@ import library.TestCase;
 import library.modules.common.SidebarMenu;
 import library.pages.HomePage;
 import library.pages.alertsframesandwindows.BrowserWindowsPage;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
