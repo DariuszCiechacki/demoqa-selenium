@@ -1,6 +1,7 @@
 package library.modules.common;
 
 import library.pages.alertsframesandwindows.AlertsPage;
+import library.pages.alertsframesandwindows.ModalDialogsPage;
 import library.pages.elements.ButtonsPage;
 import library.pages.elements.TextBoxPage;
 import library.pages.elements.webtables.WebTablesPage;
@@ -64,6 +65,17 @@ public class SidebarMenu {
         categoryName.click();
 
         return new AlertsPage();
+    }
+
+    public ModalDialogsPage navigateToModalDialogsPage(){
+        WebElement categoryName = driver.findElement(By.xpath("//div[@class='left-pannel']//*[text()='Modal Dialogs']"));
+        if (!categoryName.isEnabled()){
+            expandMainCategoryIfNecessary("Alerts, Frame & Windows");
+        }
+
+        categoryName.click();
+
+        return new ModalDialogsPage();
     }
 
     private void expandMainCategoryIfNecessary(String mainCategoryText){
