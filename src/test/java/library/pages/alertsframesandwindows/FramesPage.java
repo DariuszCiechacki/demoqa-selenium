@@ -1,4 +1,4 @@
-package library.pages.frames;
+package library.pages.alertsframesandwindows;
 
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
