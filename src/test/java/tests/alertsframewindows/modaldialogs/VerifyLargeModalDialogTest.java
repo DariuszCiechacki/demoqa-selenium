@@ -7,11 +7,11 @@ import library.pages.alertsframesandwindows.ModalDialogsPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class VerifySmallModalDialogTest extends TestCase {
-    private final String smallModalTitleExpectedText = "Small Modal";
+public class VerifyLargeModalDialogTest extends TestCase {
+    private final String largeModalTitleExpectedText = "Large Modal";
 
     @Test
-    public void verifySmallModalDialogTest(){
+    public void verifyLargeModalDialogTest(){
         boolean homePageVisible = new HomePage().waitForHomePageContent();
         Assert.assertTrue(homePageVisible,"Home page is not visible");
 
@@ -22,16 +22,16 @@ public class VerifySmallModalDialogTest extends TestCase {
         boolean modalDialogsPageVisible = modalDialogsPage.waitForModalDialogsPageContent();
         Assert.assertTrue(modalDialogsPageVisible, "Modal dialogs page is not visible");
 
-        modalDialogsPage.showSmallModalButton.click();
+        modalDialogsPage.showLargeModalButton.click();
         modalDialogsPage.waitForModalDialogContent();
 
         Assert.assertTrue(modalDialogsPage.verifyModalDialogVisibility(),
                 "Small modal is not visible");
 
-        Assert.assertEquals(modalDialogsPage.modalDialogTitle.getText(), smallModalTitleExpectedText,
-                "Incorrect small modal dialog title");
+        Assert.assertEquals(modalDialogsPage.modalDialogTitle.getText(), largeModalTitleExpectedText,
+                "Incorrect large modal dialog title");
 
-        modalDialogsPage.closeSmallModalDialog();
+        modalDialogsPage.closeLargeModalDialog();
 
         Assert.assertFalse(modalDialogsPage.verifyModalDialogVisibility(),
                 "Small modal was not closed successfully");

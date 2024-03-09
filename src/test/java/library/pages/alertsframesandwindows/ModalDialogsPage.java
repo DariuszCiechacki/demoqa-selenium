@@ -20,10 +20,12 @@ public class ModalDialogsPage {
     public WebElement showSmallModalButton;
     @FindBy(id = "showLargeModal")
     public WebElement showLargeModalButton;
-    @FindBy(xpath = "//div[@class='modal-content']")
-    public WebElement modalContent;
+    @FindBy(xpath = "//div[contains(@class,'modal-title')]")
+    public WebElement modalDialogTitle;
     @FindBy(id = "closeSmallModal")
     public WebElement closeSmallModalButton;
+    @FindBy(id = "closeLargeModal")
+    public WebElement closeLargeModalButton;
 
     public boolean waitForModalDialogsPageContent(){
         try {
@@ -38,17 +40,22 @@ public class ModalDialogsPage {
 
     public void waitForModalDialogContent(){
         new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions
-                .elementToBeClickable(modalContent));
+                .elementToBeClickable(modalDialogTitle));
     }
 
-    public void closeModalDialog(){
+    public void closeSmallModalDialog(){
         closeSmallModalButton.click();
+        waitForModalDialogToClose();
+    }
+
+    public void closeLargeModalDialog(){
+        closeLargeModalButton.click();
         waitForModalDialogToClose();
     }
 
     public boolean verifyModalDialogVisibility(){
         try {
-            modalContent.isDisplayed();
+            modalDialogTitle.isDisplayed();
             return true;
         }
         catch (NoSuchElementException exception){
@@ -56,8 +63,12 @@ public class ModalDialogsPage {
         }
     }
 
+    public String getModalDialogTitleText(){
+        return modalDialogTitle.getText();
+    }
+
     private void waitForModalDialogToClose(){
         new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions
-                .invisibilityOf(modalContent));
+                .invisibilityOf(modalDialogTitle));
     }
 }
