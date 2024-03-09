@@ -32,12 +32,6 @@ public class HomePage {
     private WebElement bookStoreApplicationCategory;
 
     public boolean waitForHomePageContent(){
-        //ToDo delete sleep, add proper wait
-        try{
-            Thread.sleep(5000);
-        }
-        catch (Exception exception){}
-
         try {
             new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions
                     .visibilityOf(elementsCategory));
