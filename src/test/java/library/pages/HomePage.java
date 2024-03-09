@@ -16,32 +16,25 @@ public class HomePage {
     public HomePage() {
         PageFactory.initElements(driver, this);
     }
-
     @FindBy(xpath = "//button[contains(@class,'consent fc-primary-button')]")
     private WebElement acceptConsentButton;
-
     @FindBy(xpath = "//h5[text()='Elements']")
     private WebElement elementsCategory;
-
     @FindBy(xpath = "//div[@class='category-cards']//h5[text()='Forms']")
     private WebElement formsCategory;
-
     @FindBy(xpath = "//div[@class='category-cards']//h5[text()='Alerts, Frame & Windows']")
     private WebElement alertsFramesWindowsCategory;
-
     @FindBy(xpath = "//div[@class='category-cards']//h5[text()='Widgets']")
     private WebElement widgetsCategory;
-
     @FindBy(xpath = "//div[@class='category-cards']//h5[text()='Interactions']")
     private WebElement interactionsCategory;
-
     @FindBy(xpath = "//div[@class='category-cards']//h5[text()='Book Store Application']")
     private WebElement bookStoreApplicationCategory;
 
     public boolean waitForHomePageContent(){
         try {
             new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions
-                    .elementToBeClickable(By.xpath("//a[contains(@href,'demoqa')]")));
+                    .elementToBeClickable(elementsCategory));
         }
         catch (TimeoutException exception){
             return false;
@@ -75,8 +68,14 @@ public class HomePage {
         try {
             if (acceptConsentButton.isDisplayed()){
                 acceptConsentButton.click();
+                waitForConsentModalToClose();
             }
         }
         catch (NoSuchElementException exception){}
+    }
+
+    private void waitForConsentModalToClose(){
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions
+                .invisibilityOf(acceptConsentButton));
     }
 }
