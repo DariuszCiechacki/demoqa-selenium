@@ -1,5 +1,6 @@
 package library.modules.common;
 
+import library.pages.alertsframesandwindows.AlertsPage;
 import library.pages.elements.ButtonsPage;
 import library.pages.elements.TextBoxPage;
 import library.pages.elements.webtables.WebTablesPage;
@@ -52,6 +53,17 @@ public class SidebarMenu {
         categoryName.click();
 
         return new PracticeFormPage();
+    }
+
+    public AlertsPage navigateToAlertsPage(){
+        WebElement categoryName = driver.findElement(By.xpath("//div[@class='left-pannel']//*[text()='Alerts']"));
+        if (!categoryName.isEnabled()){
+            expandMainCategoryIfNecessary("Alerts, Frame & Windows");
+        }
+
+        categoryName.click();
+
+        return new AlertsPage();
     }
 
     private void expandMainCategoryIfNecessary(String mainCategoryText){
