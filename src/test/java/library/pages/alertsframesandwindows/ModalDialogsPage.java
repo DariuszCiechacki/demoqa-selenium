@@ -1,9 +1,6 @@
 package library.pages.alertsframesandwindows;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -25,6 +22,8 @@ public class ModalDialogsPage {
     public WebElement showLargeModalButton;
     @FindBy(xpath = "//div[@class='modal-content']")
     public WebElement modalContent;
+    @FindBy(id = "closeSmallModal")
+    public WebElement closeSmallModalButton;
 
     public boolean waitForModalDialogsPageContent(){
         try {
@@ -40,5 +39,25 @@ public class ModalDialogsPage {
     public void waitForModalDialogContent(){
         new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions
                 .elementToBeClickable(modalContent));
+    }
+
+    public void closeModalDialog(){
+        closeSmallModalButton.click();
+        waitForModalDialogToClose();
+    }
+
+    public boolean verifyModalDialogVisibility(){
+        try {
+            modalContent.isDisplayed();
+            return true;
+        }
+        catch (NoSuchElementException exception){
+            return false;
+        }
+    }
+
+    private void waitForModalDialogToClose(){
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions
+                .invisibilityOf(modalContent));
     }
 }
