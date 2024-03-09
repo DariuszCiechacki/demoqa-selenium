@@ -14,7 +14,7 @@ public class VerifyOpeningNewWindowTest extends TestCase {
     private String openedWindowHandle;
     private final String expectedOpenedWindowHeaderText = "This is a sample page";
 
-    @Test
+    @Test(description = "Switch to new window and verify its header")
     public void verifyOpeningNewWindowTest(){
         boolean homePageVisible = new HomePage().waitForHomePageContent();
         Assert.assertTrue(homePageVisible,"Home page is not visible");

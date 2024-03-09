@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class VerifyLargeModalDialogTest extends TestCase {
     private final String largeModalTitleExpectedText = "Large Modal";
 
-    @Test
+    @Test(description = "Open large modal dialog and verify its header")
     public void verifyLargeModalDialogTest(){
         boolean homePageVisible = new HomePage().waitForHomePageContent();
         Assert.assertTrue(homePageVisible,"Home page is not visible");

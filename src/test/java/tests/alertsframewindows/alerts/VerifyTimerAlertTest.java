@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class VerifyTimerAlertTest extends TestCase {
     private final String expectedAlertMessage = "This alert appeared after 5 seconds";
 
-    @Test
+    @Test(description = "Verify alert appearing in 5 seconds")
     public void verifyTimerAlertTest(){
         boolean homePageVisible = new HomePage().waitForHomePageContent();
         Assert.assertTrue(homePageVisible,"Home page is not visible");

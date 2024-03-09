@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class VerifySmallModalDialogTest extends TestCase {
     private final String smallModalTitleExpectedText = "Small Modal";
 
-    @Test
+    @Test(description = "Open small modal dialog and verify its header")
     public void verifySmallModalDialogTest(){
         boolean homePageVisible = new HomePage().waitForHomePageContent();
         Assert.assertTrue(homePageVisible,"Home page is not visible");

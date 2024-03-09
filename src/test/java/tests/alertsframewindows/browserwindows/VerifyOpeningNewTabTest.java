@@ -14,7 +14,7 @@ public class VerifyOpeningNewTabTest extends TestCase {
     private String openedTabWindowHandle;
     private final String expectedOpenedTabHeaderText = "This is a sample page";
 
-    @Test
+    @Test(description = "Switch to opened tab and verify its header")
     public void verifyOpeningNewTabTest(){
         boolean homePageVisible = new HomePage().waitForHomePageContent();
         Assert.assertTrue(homePageVisible,"Home page is not visible");

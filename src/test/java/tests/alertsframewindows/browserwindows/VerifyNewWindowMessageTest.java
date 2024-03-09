@@ -16,7 +16,7 @@ public class VerifyNewWindowMessageTest extends TestCase {
     private final String expectedNewWindowMessageText = "Knowledge increases by sharing but not by saving. " +
             "Please share this website with your friends and in your organization.";
 
-    @Test
+    @Test(description = "Switch to new window and verify its text")
     public void verifyNewWindowMessageTest(){
         boolean homePageVisible = new HomePage().waitForHomePageContent();
         Assert.assertTrue(homePageVisible,"Home page is not visible");
